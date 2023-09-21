@@ -10,3 +10,5 @@ Desarrolle un algoritmo que permita leer dos valores distintos, determinar cual 
 mayor y escribirlo.
 
 ### Diagrama de Flujo
+
+<src img="img/diagrama-flujo.png"/>
