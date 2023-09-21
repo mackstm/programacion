@@ -3,6 +3,7 @@
 # Ejercicios
 
 - [Ejercicio 1](#ejercicio1)
+- [Ejercicio 2](#ejercicio2)
 
 ## Ejercicio 1 <a name="ejercicio1"></a>
 
@@ -11,7 +12,7 @@ mayor y escribirlo.
 
 ### Diagrama de Flujo
 
-<img src="img/diagrama-flujo.png"/>
+<img src="img/diagrama-flujo-01.png"/>
 
 ### Pseudocódigo
 
@@ -28,3 +29,7 @@ Pasos:
 - De lo contrario: Escribir __B, “Es el mayor”__
 - Fin_Si
 - Fin
+
+## Ejercicio 2 <a name="ejercicio2"></a>
+
+Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las variables A, B y C respectivamente. El algoritmo debe imprimir cual es el mayor y cual es el menor. Recuerde constatar que los tres valores introducidos por el teclado sean valores distintos. Presente un mensaje de alerta en caso de que se detecte la introducción de valores iguales.
