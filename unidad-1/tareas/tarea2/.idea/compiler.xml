@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TareaX" />
+        <module name="Tarea2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="TareaX" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
