@@ -27,3 +27,27 @@ Pasos:
 
 </div>
 
+# Ejercicio 8 <a name="ejercicio8"></a>
+
+Desarrolle un algoritmo que permita calcular Promedio de Notas; finaliza cuando N = 0.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama08.png"/>
+
+### Pseudocódigo
+
+Pasos:
+- Inicio
+- Inicializar variable: N
+- Escribir __"Ingrese el número de asignaturas"__
+- Solicitar valor de N
+- Inicializar Sum y Contador
+- Mientras __N != 0__ y __Contador < N__
+- Solicitar valor de Nota
+- __Sum = Sum + Nota__
+- __Contador = Contador + 1__
+- finMientras
+- __Media = Sum / N__
+- Escribir "Nota media: " Media
+- Fin
