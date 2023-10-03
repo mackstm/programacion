@@ -12,6 +12,25 @@ El ejercicio consiste en escribir un programa que encuentre e imprima todos los 
 
 ### Pseudocódigo
 
+- Inicio
+- Inicializar variables: limInferior y limSuperior
+- Escribir "Introduzca el límite inferior del rango: "
+- Solicitar valor de limInferior
+- Escribir "Introduzca el límite superior del rango: "
+- Solicitar valor de limSuperior
+- Inicializar variables: __sum = 0__, __counter = 0__
+- Para i = limInferior hasta limSuperior
+- Para j = 1 hasta i
+- Si i % j = 0, sum += j
+- finSi
+- finPara
+- Si sum = i
+- Incrementar valor de counter
+- Escribir "Número perfecto " counter ": " i
+- finSi
+- sum = 0
+- finPara
+- Fin
 
 
 </div>
