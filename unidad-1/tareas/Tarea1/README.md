@@ -24,9 +24,6 @@ Pasos:
 - Fin_Si
 - Fin
 
-
-</div>
-
 # Ejercicio 8 <a name="ejercicio8"></a>
 
 Desarrolle un algoritmo que permita calcular Promedio de Notas; finaliza cuando N = 0.
@@ -51,3 +48,5 @@ Pasos:
 - __Media = Sum / N__
 - Escribir "Nota media: " Media
 - Fin
+
+</div>
