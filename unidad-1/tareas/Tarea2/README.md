@@ -8,7 +8,7 @@ El ejercicio consiste en escribir un programa que encuentre e imprima todos los 
 
 ### Diagrama de Flujo
 
-<img src=/>
+<img src="images/diagrama-tarea2.png"/>
 
 ### Pseudocódigo
 
