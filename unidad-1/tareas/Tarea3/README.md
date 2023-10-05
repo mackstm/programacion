@@ -20,7 +20,7 @@ Escribe un programa en Java que imprima el patrón siguiente:
 
 ### Diagrama de Flujo
 
-<img src="images/diagrama-tarea3.png"/>
+<img src="images/diagrama-tarea3-01.png"/>
 
 ### Pseudocódigo
 
