@@ -19,14 +19,13 @@ public class Main {
         System.out.println("Introduzca el límite superior del rango: ");
         limSuperior = read.nextInt();
 
-        // Inizialización de la variable en la que acumularemos la suma
-        int sum = 0;
-
         // Variable counter que solo se usará para imprimir el contador de números perfectos
         short counter = 0;
 
         // Bucle que se ejecutará contando desde 1 hasta 1000
         for(int i = limInferior; i <= limSuperior; i++) {
+
+            int sum = 0;
 
             // Bucle anidado que acumulará sum cuando encuentre un divisor a excepción del mismo número
             for(int j = 1; j < i; j++) {
@@ -41,9 +40,6 @@ public class Main {
                 counter++;
                 System.out.print("Número perfecto " + counter + ": " + i + "\n");
             }
-
-            // Se reinicia sum
-            sum = 0;
         }
     }
 }

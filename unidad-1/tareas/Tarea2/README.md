@@ -18,8 +18,9 @@ El ejercicio consiste en escribir un programa que encuentre e imprima todos los 
 - Solicitar valor de limInferior
 - Escribir "Introduzca el límite superior del rango: "
 - Solicitar valor de limSuperior
-- Inicializar variables: __sum = 0__, __counter = 0__
+- Inicializar variable __counter = 0__
 - Para i = limInferior hasta limSuperior
+- Inicializar variable __sum = 0__
 - Para j = 1 hasta i
 - Si i % j = 0, sum += j
 - finSi
@@ -28,7 +29,6 @@ El ejercicio consiste en escribir un programa que encuentre e imprima todos los 
 - Incrementar valor de counter
 - Escribir "Número perfecto " counter ": " i
 - finSi
-- sum = 0
 - finPara
 - Fin
 
