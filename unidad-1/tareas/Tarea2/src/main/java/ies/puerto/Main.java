@@ -3,6 +3,8 @@ package ies.puerto;
 import java.util.Scanner;
 
 /**
+ * @author José Maximiliano Boada Martín
+ *
  * Escribir un programa que encuentre e imprima todos los números perfectos en un rango dado
  */
 public class Main {
