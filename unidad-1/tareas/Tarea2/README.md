@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Números Perfectos <a name="ejercicio8"></a>
+# Números Perfectos
 
 Un número perfecto es aquel que es igual a la suma de sus divisores propios (excluyendo él mismo). Por ejemplo, 6 es un número perfecto porque sus divisores propios son 1, 2 y 3, y 1 + 2 + 3 = 6.
 

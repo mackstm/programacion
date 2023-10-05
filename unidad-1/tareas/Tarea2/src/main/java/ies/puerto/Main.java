@@ -21,7 +21,7 @@ public class Main {
         int sum = 0;
 
         // Variable counter que solo se usará para imprimir el contador de números perfectos
-        int counter = 0;
+        short counter = 0;
 
         // Bucle que se ejecutará contando desde 1 hasta 1000
         for(int i = limInferior; i <= limSuperior; i++) {
