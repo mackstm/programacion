@@ -5,6 +5,7 @@
 ## Índice
 
 - [Ejercicio 1](ejercicio01)
+- [Ejercicio 2](ejercicio02)
 
 ## Ejercicio 1 <a name="ejercicio01"></a>
 
@@ -23,6 +24,22 @@ Escribe un programa en Java que imprima el patrón siguiente:
 <img src="images/diagrama-tarea3-01.png"/>
 
 ### Pseudocódigo
+
+1. Inicio
+2. Inicializamos __sum = 1__, i = 0, j = 0
+3. Escribimos: __sum__ " "
+4. __sum = sum + 1__
+5. __j = j + 1__
+6. Si __j <= i__, repetir desde el paso 3
+7. De lo contrario, escribir un doble salto de línea
+8. FinSi
+9. __i = i + 1__
+10. Si __i < 4__, repetir desde el paso 3
+11. Sino, Finalizar programa
+12. FinSi
+13. Fin
+
+## Ejercicio 2 <a name="ejercicio02"></a>
 
 
 
