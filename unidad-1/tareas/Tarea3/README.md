@@ -4,8 +4,8 @@
 
 ## Índice
 
-- [Ejercicio 1](ejercicio01)
-- [Ejercicio 2](ejercicio02)
+- [Ejercicio 1](#ejercicio01)
+- [Ejercicio 2](#ejercicio02)
 
 ## Ejercicio 1 <a name="ejercicio01"></a>
 
