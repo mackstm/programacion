@@ -41,6 +41,14 @@ Escribe un programa en Java que imprima el patrón siguiente:
 
 ## Ejercicio 2 <a name="ejercicio02"></a>
 
+Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos números. Se debe solicitar los números por teclado.
+
+### Diagrama de Flujo
+
+
+
+### Pseudocódigo
+
 
 
 </div>
