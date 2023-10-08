@@ -81,6 +81,15 @@ Escribe un programa en Java que encuentre el número de Fibonacci en la posició
 
 ### Pseudocódigo
 
-
+1. Inicio
+2. Escribir "Introduzca la posición del número de Fibonacci: "
+3. Leer __posicion__ por teclado
+4. Inicializar: __fibo1 = 0__, __fibo2 = 1__, __i = 1__
+5. __fibo2 = fibo1 + fibo2__
+6. __fibo1 = fibo2 - fibo1__
+7. __i = i + 1__
+8. Si __i < posicion__ repetir desde el paso 5
+9. Escribir "El número de Fibonacci de la posición " __posicion__ " es: " __fibo1__
+10. Fin
 
 </div>
