@@ -64,6 +64,12 @@ Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos
 5. Leer __valorB__ por teclado
 6. Inicializar: __mcd = 1__, __i = 1__
 7. Si __i <= valorA__ e __i <= valorB__
-8. 
+8. Si __valorA % i = 0__ y __valorA % i = 0__
+9. __mcd = i__
+11. FinSi
+12. __i = i + 1__
+13. FinSi
+14. "El MCD de " __valorA__ " y " __valorB__ " es: " __mcd__
+15. Fin
 
 </div>
