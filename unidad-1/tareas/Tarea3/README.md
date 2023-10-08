@@ -161,7 +161,7 @@ Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y
 8. Repetir desde el paso 4
 9. FinSi
 10. Si __result = i__
-11. Escribir i
+11. Escribir __i__
 12. FinSi
 13. i = i + 1
 14. Si __i <= 1000__
@@ -219,7 +219,7 @@ Encontrar y mostrar todos los números perfectos en un rango dado utilizando un 
 14. FinSi
 15. Si __sum = i__
 16. __counter = counter + 10__
-17. Escribir "Número perfecto " counter ": " i
+17. Escribir "Número perfecto " __counter__ ": " __i__
 18. FinSi
 19. i = i + 1
 20. Si __i < limSuperior__
@@ -236,5 +236,18 @@ Imprimir la tabla de multiplicar de un número ingresado por el usuario utilizan
 <img src="images/diagrama-tarea3-09.png"/>
 
 ### Pseudocódigo
+
+1. Inicio
+2. Escribir "Introduzca el número del que desea ver la tabla de multiplicar: "
+3. Leer __numero__ por teclado
+4. Inicializar __i = 0__
+5. Escribir __numero__ " x " __i__ "= " __(numero * i)__
+6. __i = i + 1__
+7. Si __i <= 10__
+8. Repetir desde el paso 5
+9. FinSi
+10. Fin
+
+
 
 </div>
