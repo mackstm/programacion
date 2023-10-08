@@ -120,4 +120,25 @@ Escribe un programa en Java que verifique si un número es palíndromo. Se debe 
 15. FinSi
 16. Fin
 
+## Ejercicio 5 <a name="ejercicio05"></a>
+
+Escribe un programa en Java que imprima los primeros n términos de la secuencia de Fibonacci. Se debe solicitar el número n por teclado.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-05.png"/>
+
+### Pseudocódigo
+
+1. Inicio
+2. Escribir "Introduzca la posición del número de Fibonacci: "
+3. Leer __limit__ por teclado
+4. Inicializar: __fibo1 = 0__, __fibo2 = 1__, __i = 0__
+5. Escribir __fibo1__ " "
+6. __fibo2 = fibo1 + fibo2__
+7. __fibo1 = fibo2 - fibo1__
+8. __i = i + 1__
+9. Si __i < limit__ repetir desde el paso 5
+10. Fin
+
 </div>
