@@ -141,4 +141,32 @@ Escribe un programa en Java que imprima los primeros n términos de la secuencia
 9. Si __i < limit__ repetir desde el paso 5
 10. Fin
 
+## Ejercicio 6 <a name="ejercicio06"></a>
+
+Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y 1000.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-06.png"/>
+
+### Pseudocódigo
+
+1. Inicio
+2. Inicializar __i = 1__
+3. Inicializar: __auxiliar = i__, __mult = 0__, __result = 0__
+4. Si __auxiliar > 0__
+5. __mult = auxiliar % 10__
+6. __result = result + (mult * mult * mult)__
+7. __auxiliar = auxiliar / 10__
+8. Repetir desde el paso 4
+9. FinSi
+10. Si __result = i__
+11. Escribir i
+12. FinSi
+13. i = i + 1
+14. Si __i <= 1000__
+15. Repetir desde el paso 3
+16. FinSi
+17. Fin
+
 </div>
