@@ -179,4 +179,18 @@ Imprimir el nombre del día de la semana correspondiente a un número ingresado 
 
 ### Pseudocódigo
 
+1. Inicio
+2. Escribir "Introduzca el número correspondiente al día de la semana deseado:"
+3. Leer __numDia__ por teclado
+4. Switch __numDia__
+5. Caso 1: Escribir "Lunes" y finalizar programa
+6. Caso 1: Escribir "Martes" y finalizar programa
+7. Caso 1: Escribir "Miércoles" y finalizar programa
+8. Caso 1: Escribir "Jueves" y finalizar programa
+9. Caso 1: Escribir "Viernes" y finalizar programa
+10. Caso 1: Escribir "Sábado" y finalizar programa
+11. Caso 1: Escribir "Domingo" y finalizar programa
+12. Por defecto: Escribir "El número introducido no corresponde a ningún día de la semana."
+13. Fin
+
 </div>
