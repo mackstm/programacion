@@ -67,9 +67,10 @@ Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos
 9. __mcd = i__
 11. FinSi
 12. __i = i + 1__
-13. FinSi
-14. "El MCD de " __valorA__ " y " __valorB__ " es: " __mcd__
-15. Fin
+13. Repetir desde el paso 7
+14. FinSi
+15. "El MCD de " __valorA__ " y " __valorB__ " es: " __mcd__
+16. Fin
 
 ## Ejercicio 3 <a name="ejercicio03"></a>
 
@@ -91,5 +92,32 @@ Escribe un programa en Java que encuentre el número de Fibonacci en la posició
 8. Si __i < posicion__ repetir desde el paso 5
 9. Escribir "El número de Fibonacci de la posición " __posicion__ " es: " __fibo1__
 10. Fin
+
+## Ejercicio 4 <a name="ejercicio04"></a>
+
+Escribe un programa en Java que verifique si un número es palíndromo. Se debe solicitar el número por teclado.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-04.png"/>
+
+### Pseudocódigo
+
+1. Inicio
+2. Escribir "Introduzca un número: "
+3. Leer __numero__ por teclado
+4. Inicializar: __resto__, __inverso = 0__, __auxiliar = numero__
+5. Si __auxiliar > 0__
+6. __resto = auxiliar % 10__
+7. __inverso = (inverso * 10) + resto__
+8. __auxiliar = auxiliar / 10__
+9. Repetir desde el paso 5
+10. FinSi
+11. Si __inverso = numero__
+12. Escribir __numero__ " es palíndromo"
+13. Sino
+14. Escribir __numero__ " no es palíndromo"
+15. FinSi
+16. Fin
 
 </div>
