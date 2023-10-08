@@ -53,7 +53,7 @@ Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos
 
 ### Diagrama de Flujo
 
-
+<img src="images/diagrama-tarea3-02.png"/>
 
 ### Pseudocódigo
 
