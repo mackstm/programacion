@@ -169,4 +169,14 @@ Escribe un programa en Java que encuentre todos los números Armstrong entre 1 y
 16. FinSi
 17. Fin
 
+## Ejercicio 7 <a name="ejercicio07"></a>
+
+Imprimir el nombre del día de la semana correspondiente a un número ingresado por el usuario utilizando una estructura switch. El día a verificar se debe de pedir por teclado.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-07.png"/>
+
+### Pseudocódigo
+
 </div>
