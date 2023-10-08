@@ -34,8 +34,8 @@ Escribe un programa en Java que imprima el patrón siguiente:
 ### Pseudocódigo
 
 1. Inicio
-2. Inicializamos __sum = 1__, i = 0, j = 0
-3. Escribimos: __sum__ " "
+2. Inicializar __sum = 1__, i = 0, j = 0
+3. Escribir: __sum__ " "
 4. __sum = sum + 1__
 5. __j = j + 1__
 6. Si __j <= i__, repetir desde el paso 3
@@ -57,6 +57,13 @@ Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos
 
 ### Pseudocódigo
 
-
+1. Inicio
+2. Escribir "Introduzca el valor de A: "
+3. Leer __valorA__ por teclado
+4. Escribir "Introduzca el valor de B: "
+5. Leer __valorB__ por teclado
+6. Inicializar: __mcd = 1__, __i = 1__
+7. Si __i <= valorA__ e __i <= valorB__
+8. 
 
 </div>
