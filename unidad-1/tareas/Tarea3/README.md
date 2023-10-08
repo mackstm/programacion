@@ -6,6 +6,14 @@
 
 - [Ejercicio 1](#ejercicio01)
 - [Ejercicio 2](#ejercicio02)
+- [Ejercicio 3](#ejercicio03)
+- [Ejercicio 4](#ejercicio04)
+- [Ejercicio 5](#ejercicio05)
+- [Ejercicio 6](#ejercicio06)
+- [Ejercicio 7](#ejercicio07)
+- [Ejercicio 8](#ejercicio08)
+- [Ejercicio 9](#ejercicio09)
+- [Ejercicio 10](#ejercicio10)
 
 ## Ejercicio 1 <a name="ejercicio01"></a>
 
