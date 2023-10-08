@@ -193,4 +193,48 @@ Imprimir el nombre del día de la semana correspondiente a un número ingresado 
 12. Por defecto: Escribir "El número introducido no corresponde a ningún día de la semana."
 13. Fin
 
+## Ejercicio 8 <a name="ejercicio08"></a>
+
+Encontrar y mostrar todos los números perfectos en un rango dado utilizando un bucle for. Solicita el límite por teclado.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-08.png"/>
+
+### Pseudocódigo
+
+1. Inicio
+2. Escribir "Introduzca el límite inferior del rango: "
+3. Solicitar valor de limInferior
+4. Escribir "Introduzca el límite superior del rango: "
+5. Solicitar valor de limSuperior
+6. Inicializar: __counter = 0__, __i = limInferior__, __j = 1__
+7. Inicializar: __sum = 0__
+8. Si __i % j = 0__
+9. __sum = sum + j__
+10. FinSi
+11. __j = j + 1__
+12. Si __j < i__
+13. Repetir desde el paso 8
+14. FinSi
+15. Si __sum = i__
+16. __counter = counter + 10__
+17. Escribir "Número perfecto " counter ": " i
+18. FinSi
+19. i = i + 1
+20. Si __i < limSuperior__
+21. Repetir desde el paso 7
+22. FinSi
+23. Fin
+
+## Ejercicio 9 <a name="ejercicio09"></a>
+
+Imprimir la tabla de multiplicar de un número ingresado por el usuario utilizando un bucle for. Solicita el valor de la tabla por teclado.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-09.png"/>
+
+### Pseudocódigo
+
 </div>
