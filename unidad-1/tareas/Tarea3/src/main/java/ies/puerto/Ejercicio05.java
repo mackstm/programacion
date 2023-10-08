@@ -12,7 +12,7 @@ public class Ejercicio05 {
         Scanner read = new Scanner(System.in);
         int limit;
 
-        System.out.println("Introduzca la posición del número de Fibonacci: ");
+        System.out.println("Introduzca hasta qué posición quiere imprimir la secuencia de Fibonacci: ");
         limit = read.nextInt();
 
         // Inizializamos los dos primeros valores de la secuencia de Fibonacci
