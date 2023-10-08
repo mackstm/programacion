@@ -248,6 +248,12 @@ Imprimir la tabla de multiplicar de un número ingresado por el usuario utilizan
 9. FinSi
 10. Fin
 
+## Ejercicio 10 <a name="ejercicio10"></a>
 
+Calcular la suma de todos los números pares entre 1 y un número ingresado por el usuario utilizando un bucle do-while.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-10.png"/>
 
 </div>

@@ -12,22 +12,18 @@ public class Ejercicio10 {
     public static void main(String[] args) {
 
         Scanner read = new Scanner(System.in);
-        int limite;
+        int limit;
 
         System.out.println("Introduzca el límite: ");
-        limite = read.nextInt();
+        limit = read.nextInt();
 
-        // Bucle do while que imprime todos los números pares entre 1 y el límite. Como 1 no es par, empezamos por el 2
-        // para ahorrar una iteración
+        // Bucle do while que imprime todos los números pares entre 1 y el límite.
         int i = 2;
         do {
-
-            if (i % 2 == 0) {
                 System.out.println(i);
-            }
 
-            i++;
-        } while (i <= limite);
+            i += 2;
+        } while (i <= limit);
 
     }
 }
