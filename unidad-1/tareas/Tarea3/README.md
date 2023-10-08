@@ -256,4 +256,17 @@ Calcular la suma de todos los números pares entre 1 y un número ingresado por 
 
 <img src="images/diagrama-tarea3-10.png"/>
 
+### Pseudocódigo
+
+1. Inicio
+2. Escribir "Introduzca el límite: "
+3. Leer __limit__ por teclado
+4. Inicializar __i = 2__
+5. Escribir __i__
+6. __i = i + 2__
+7. Si __i <= limit__
+8. Repetir desde el paso 5
+9. FinSi
+10. Fin
+
 </div>
