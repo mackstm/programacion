@@ -43,9 +43,8 @@ Escribe un programa en Java que imprima el patrón siguiente:
 8. FinSi
 9. __i = i + 1__
 10. Si __i < 4__, repetir desde el paso 3
-11. Sino, Finalizar programa
-12. FinSi
-13. Fin
+11. FinSi
+12. Fin
 
 ## Ejercicio 2 <a name="ejercicio02"></a>
 
@@ -71,5 +70,17 @@ Escribe un programa en Java que encuentre el máximo común divisor (MCD) de dos
 13. FinSi
 14. "El MCD de " __valorA__ " y " __valorB__ " es: " __mcd__
 15. Fin
+
+## Ejercicio 3 <a name="ejercicio03"></a>
+
+Escribe un programa en Java que encuentre el número de Fibonacci en la posición n.  Se debe solicitar el número por teclado.
+
+### Diagrama de Flujo
+
+<img src="images/diagrama-tarea3-03.png"/>
+
+### Pseudocódigo
+
+
 
 </div>
