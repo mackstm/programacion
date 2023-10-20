@@ -7,12 +7,24 @@ public class Ejercicio7Test {
 
     Ejercicio7 ejercicio7 = new Ejercicio7();
 
+    public void verifyDayOfTheWeek(String strDay, int numDay) {
+        String result = "";
+
+        result = ejercicio7.dayOfTheWeek(numDay);
+        Assertions.assertEquals(strDay, result, "No se ha obtenido el resultado esperado");
+    }
+
     @Test
     public void dayOfTheWeekTestOK() {
-        String result = "";
-        String resultOK = "Lunes";
-
-        result = ejercicio7.dayOfTheWeek(1);
-        Assertions.assertEquals(resultOK, result, "No se ha obtenido el resultado esperado");
+        verifyDayOfTheWeek("Lunes", 1);
+        verifyDayOfTheWeek("Martes", 2);
+        verifyDayOfTheWeek("Miercoles", 3);
+        verifyDayOfTheWeek("Jueves", 4);
+        verifyDayOfTheWeek("Viernes", 5);
+        verifyDayOfTheWeek("Sabado", 6);
+        verifyDayOfTheWeek("Domingo", 7);
+        verifyDayOfTheWeek("El número introducido no corresponde a ningún día de la semana", 9);
+        verifyDayOfTheWeek("El número introducido no corresponde a ningún día de la semana", -9);
     }
+
 }

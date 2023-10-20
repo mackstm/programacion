@@ -2,10 +2,15 @@ package ies.puerto;
 
 public class Ejercicio7 {
     public static void main(String[] args) {
-        System.out.println("Hola Mundo al ejercicio X");
     }
+
+    /**
+     * Funcion que devuelve un día de la semana degún el número introducido
+     * @param day nímero dia
+     * @return string de dia de la semana
+     */
     public String dayOfTheWeek(int day) {
-        String result = "Domingo";
+        String result;
 
         switch (day) {
             case 1:
@@ -15,7 +20,7 @@ public class Ejercicio7 {
                 result = "Martes";
                 break;
             case 3:
-                result = "Miércoles";
+                result = "Miercoles";
                 break;
             case 4:
                 result = "Jueves";
