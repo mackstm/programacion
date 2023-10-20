@@ -1,5 +1,9 @@
 package ies.puerto;
 
+/**
+ * Realiza una función que realiza el cálculo del área en triángulo.
+ * @author José Maximiliano Boada Martín
+ */
 public class Ejercicio1 {
 
     /**
