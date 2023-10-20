@@ -1,0 +1,27 @@
+package ies.puerto;
+
+/**
+ * Clase que tiene como objetivo realizar el factorial de un numero dado
+ * @author José Maximiliano Boada Martín
+ */
+public class Ejercicio1 {
+    public static void main(String[] args) {
+
+    }
+
+    /**
+     * Funcion que calcula el factorial de un numero
+     * @param number entrada para el calculo
+     * @return resultado de la operacion factorial
+     */
+    public int calcFactorial(int number) {
+        int result = 1;
+
+        for (int i = 2; i <= number; i++) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+}
