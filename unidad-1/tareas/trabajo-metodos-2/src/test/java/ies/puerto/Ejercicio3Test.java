@@ -60,11 +60,11 @@ public class Ejercicio3Test {
 
     @Test
     public void ascendingOrderTestOK() {
-        checkWrite(2, 1, 4, 3, 5, "1 2 3 4 5");
+        checkAscendingOrder(2, 1, 4, 3, 5, "1 2 3 4 5");
     }
 
     @Test
     public void descendingOrderTestOK() {
-        checkWrite(2, 1, 4, 3, 5, "5 4 3 2 1");
+        checkDescendingOrder(2, 1, 4, 3, 5, "5 4 3 2 1");
     }
 }

@@ -1,13 +1,13 @@
 package ies.puerto;
 
 /**
- * Crear una función que convierte de grados Fahrenheit a Celsius.
- * @author José Maximiliano Boada Martín
+ * Crear una funcion que convierte de grados Fahrenheit a Celsius.
+ * @author Jose Maximiliano Boada Martin
  */
 public class Ejercicio6 {
 
     /**
-     * Función que convierte una temperatura dada de Fahrenheit a Celsius
+     * Funcion que convierte una temperatura dada de Fahrenheit a Celsius
      * @param temperature temperatura a convertir
      * @return temperatura en celsius
      */
