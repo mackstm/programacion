@@ -1,25 +1,25 @@
 package ies.puerto;
 
 /**
- * Realiza una función que realiza el cálculo del área en cuadrado y un rectángulo.
- * @author José Maximiliano Boada Martín
+ * Realiza una funcion que realiza el calculo del area en cuadrado y un rectangulo.
+ * @author Jose Maximiliano Boada Martin
  */
 public class Ejercicio3 {
 
     /**
-     * Función para calcular el área de un cuadrado
+     * Funcion para calcular el area de un cuadrado
      * @param lado del cuadrado
-     * @return lado * lado, área del cuadrado
+     * @return lado * lado, area del cuadrado
      */
     public int areaCuadrado(int lado) {
-        return lado * lado;
+        return areaRectangulo(lado, lado);
     }
 
     /**
-     * Función para calcular el área de un rectángulo
-     * @param ladoA base del rectángulo
-     * @param ladoB altura del rectángulo
-     * @return base * altura, área del rectángulo
+     * Funcion para calcular el area de un rectangulo
+     * @param ladoA base del rectangulo
+     * @param ladoB altura del rectangulo
+     * @return base * altura, area del rectangulo
      */
     public int areaRectangulo(int ladoA, int ladoB) {
         return ladoA * ladoB;

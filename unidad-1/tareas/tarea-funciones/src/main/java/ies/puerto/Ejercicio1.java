@@ -1,16 +1,16 @@
 package ies.puerto;
 
 /**
- * Realiza una función que realiza el cálculo del área en triángulo.
- * @author José Maximiliano Boada Martín
+ * Realiza una funcion que realiza el calculo del area en triangulo.
+ * @author Jose Maximiliano Boada Martin
  */
 public class Ejercicio1 {
 
     /**
-     * Función que devuelve el área del triángulo
-     * @param base base del triángulo
-     * @param altura altura del triángulo
-     * @return el área del triángulo
+     * Funcion que devuelve el area del triangulo
+     * @param base base del triangulo
+     * @param altura altura del triangulo
+     * @return el área del triangulo
      */
     public int areaTriangulo(int base, int altura) {
         return (base * altura) / 2;

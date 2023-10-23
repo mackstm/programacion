@@ -1,15 +1,15 @@
 package ies.puerto;
 
 /**
- * Realiza una función que realiza el cálculo del área en circulo.
- * @author José Maximiliano Boada Martín
+ * Realiza una funcion que realiza el calculo del area en circulo.
+ * @author Jose Maximiliano Boada Martin
  */
 public class Ejercicio2 {
 
     /**
-     * Función para calcular el área de un círculo
-     * @param radio del círculo
-     * @return área del círculo
+     * Funcion para calcular el area de un circulo
+     * @param radio del circulo
+     * @return area del circulo
      */
     public double areaCirculo(int radio) {
         return Math.PI * Math.pow(radio, 2);

@@ -1,34 +1,34 @@
 package ies.puerto;
 
 /**
- * Crea una función que tome dos parámetros numéricos y calcule el máximo de los dos números. Crear una nueva función con el mismo nombre, que tome tres parámetros, y calcule el máximo de los tres números. Esta segunda función debe hacer uso de la primera.
- * @author José Maximiliano Boada Martín
+ * Crea una funcion que tome dos parametros numericos y calcule el maximo de los dos numeros.
+ * Crear una nueva funcion con el mismo nombre, que tome tres parametros, y calcule el maximo de los tres numeros.
+ * Esta segunda funcion debe hacer uso de la primera.
+ * @author Jose Maximiliano Boada Martin
  */
 
 public class Ejercicio4 {
 
     /**
-     * Función que revisa cuál número es mayor.
-     * @param numberA primer número
-     * @param numberB segundo número
-     * @return el número mayor
+     * Funcion que revisa cual numero es mayor.
+     * @param numberA primer numero
+     * @param numberB segundo numero
+     * @return el numero mayor
      */
     public int greaterNumber(int numberA, int numberB) {
-
+        int result = numberB;
         if (numberA > numberB) {
-            return numberA;
+            result = numberA;
         }
-        else {
-            return numberB;
-        }
+            return result;
     }
 
     /**
-     * Función que revisa cuál número es mayor de entre tres números. Sobrecarga de la función anterior
-     * @param numberA primer número
-     * @param numberB segundo número
-     * @param numberC tercer número
-     * @return el número mayor
+     * Funcion que revisa cual numero es mayor de entre tres numeros. Sobrecarga de la funcion anterior
+     * @param numberA primer numero
+     * @param numberB segundo numero
+     * @param numberC tercer numero
+     * @return el numero mayor
      */
     public int greaterNumber(int numberA, int numberB, int numberC) {
         return greaterNumber(greaterNumber(numberA, numberB), numberC);

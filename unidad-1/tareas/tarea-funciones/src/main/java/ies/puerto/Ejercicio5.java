@@ -1,14 +1,14 @@
 package ies.puerto;
 
 /**
- * Crea una función que tome como parámetro un número e indique si es primo o no.
+ * Crea una funcion que tome como parametro un numero e indique si es primo o no.
  * @author José Maximiliano Boada Martín
  */
 public class Ejercicio5 {
 
     /**
-     * Función que verifica si un número es primo
-     * @param number número a revisar
+     * Funcion que verifica si un numero es primo
+     * @param number numero a revisar
      * @return true o false
      */
     public boolean isPrimeNumber(int number) {
