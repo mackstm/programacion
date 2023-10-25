@@ -64,7 +64,27 @@ public class Ejercicio3Test {
     }
 
     @Test
+    public void ascendingOrderJumpTestOK() {
+        checkAscendingOrder(2, 1, 9, 7, 5, "1 2 5 7 9");
+    }
+
+    @Test
+    public void ascendingOrderEqualTestOK() {
+        checkAscendingOrder(2, 9, 9, 7, 7, "2 7 7 9 9");
+    }
+
+    @Test
     public void descendingOrderTestOK() {
         checkDescendingOrder(2, 1, 4, 3, 5, "5 4 3 2 1");
+    }
+
+    @Test
+    public void descendingOrderJumpTestOK() {
+        checkDescendingOrder(2, 1, 9, 7, 5, "9 7 5 2 1");
+    }
+
+    @Test
+    public void descendingOrderEqualTestOK() {
+        checkDescendingOrder(2, 9, 9, 7, 7, "9 9 7 7 2");
     }
 }

@@ -30,4 +30,9 @@ public class Ejercicio2Test {
     public void calcNeg8TestOK() {
         checkNumberForTest(-8, "Number is negative and even");
     }
+
+    @Test
+    public void calc0TestOK() {
+        checkNumberForTest(0, "Number is positive and even");
+    }
 }
