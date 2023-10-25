@@ -12,7 +12,7 @@ public class Ejercicio1 {
      * @param hoursInMonth hours worked in a month
      * @return hours * hourly rate (10)
      */
-    public int calcMonthlySalary(int hoursInMonth) {
+    public float calcMonthlySalary(float hoursInMonth) {
         return hoursInMonth * 10;
     }
 }
