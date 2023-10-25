@@ -4,15 +4,16 @@
 
 ## Índice
 
-1. [Ejercicio 1](#ejercicio1)
-2. [Ejercicio 2](#ejercicio2)
-3. [Ejercicio 3](#ejercicio3)
-    - [Mostrar números](#ejercicio3-1)
-    - [Mostrar suma](#ejercicio3-2)
-    - [Orden creciente](#ejercicio3-3)
-    - [Orden decreciente](#ejercicio3-4)
+1. [Ejercicio 1](#index01)
+2. [Ejercicio 2](#index02)
+3. [Ejercicio 3](#index03)
+    - [Mostrar números](#index03-1)
+    - [Mostrar suma](#index03-2)
+    - [Orden creciente](#index03-3)
+    - [Orden decreciente](#index03-4)
+4. [Cobertura de código](#index04)
 
-## Ejercicio 1 <a name="ejercicio1"></a>
+## Ejercicio 1 <a name="index01"></a>
 
 Realizar un programa que calcule el sueldo de un trabajador, el programa debe de tener un método que reciba el numero de
 horas que has trabajado en un mes, las horas se pagan a 10€.
@@ -22,7 +23,7 @@ horas que has trabajado en un mes, las horas se pagan a 10€.
 1. Pasar parámetro: __horas__
 2. Retornar __horas * 10__
 
-## Ejercicio 2 <a name="ejercicio2"></a>
+## Ejercicio 2 <a name="index02"></a>
 
 Realiza un programa que tenga un método al que se le pase un número e indique si es positivo o negativo y si es par o
 impar.
@@ -40,12 +41,12 @@ impar.
 8. __resultado = resultado concatenado con " e impar"__
 9. Retornar __resultado__
 
-## Ejercicio 3 <a name="ejercicio3"></a>
+## Ejercicio 3 <a name="index03"></a>
 
 Realiza un programa que contenga los suficientes métodos para: pedir 5 números, mostrar los 5 números, muestra la suma y
 los muestra en orden creciente y en orden decreciente.
 
-### Mostrar números <a name="ejercicio3-1"></a>
+### Mostrar números <a name="index03-1"></a>
 
 #### Pseudocódigo
 
@@ -54,7 +55,7 @@ los muestra en orden creciente y en orden decreciente.
 3. Recorrer lista y añadir cada elemento a __resultado__
 4. Retornar __resultado__
 
-### Mostrar suma <a name="ejercicio3-2"></a>
+### Mostrar suma <a name="index03-2"></a>
 
 #### Pseudocódigo
 
@@ -63,7 +64,7 @@ los muestra en orden creciente y en orden decreciente.
 3. Recorrer lista y sumar elementos: __suma = suma + elemento__
 4. Retornar __suma__
 
-### Orden creciente <a name="ejercicio3-3"></a>
+### Orden creciente <a name="index03-3"></a>
 
 #### Pseudocódigo
 
@@ -71,12 +72,16 @@ los muestra en orden creciente y en orden decreciente.
 2. Ordenar números de menor a mayor
 3. Retornar cadena de lista ordenada
 
-### Orden decreciente <a name="ejercicio3-4"></a>
+### Orden decreciente <a name="index03-4"></a>
 
 #### Pseudocódigo
 
 1. Pasar lista como parámetro: __números__
 2. Ordenar números de mayor a menor
 3. Retornar cadena de lista ordenada
+
+## Cobertura de código <a name="index04"></a>
+
+<img src="images/coverage.png"></img>
 
 </div>
