@@ -8,7 +8,7 @@ public class Ejercicio6Test {
 
     public void checkTransposition(int[][] matrix, int[][] resultOK) {
         int[][] result = ejercicio6.transposeMatrix(matrix);
-        Assertions.assertEquals(resultOK, result, "Unexpected result");
+        Assertions.assertArrayEquals(resultOK, result, "Unexpected result");
     }
 
     @Test
