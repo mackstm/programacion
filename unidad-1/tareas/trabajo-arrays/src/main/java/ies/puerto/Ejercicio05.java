@@ -4,7 +4,7 @@ package ies.puerto;
  * Search a number in an array of integers
  * @author Jose Maximiliano Boada Martin
  */
-public class Ejercicio5 {
+public class Ejercicio05 {
 
     /**
      * This function searches for a number in the given array and returns its position

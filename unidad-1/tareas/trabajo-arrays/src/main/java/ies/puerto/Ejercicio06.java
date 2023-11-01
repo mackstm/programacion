@@ -5,7 +5,7 @@ package ies.puerto;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio6 {
+public class Ejercicio06 {
 
     /**
      * This function transposes a given matrix

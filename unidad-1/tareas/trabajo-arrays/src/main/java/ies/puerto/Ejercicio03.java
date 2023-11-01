@@ -5,7 +5,7 @@ package ies.puerto;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio3 {
+public class Ejercicio03 {
 
     /**
      * Finds maximum number of an array

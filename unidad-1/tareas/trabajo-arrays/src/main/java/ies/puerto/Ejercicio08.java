@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio8 {
+public class Ejercicio08 {
     
     /**
      * Deletes duplicates in array
@@ -18,22 +18,23 @@ public class Ejercicio8 {
         if (array.length == 0 || array.length == 1) {
             return array;
         }
-
         Arrays.sort(array);
-        int newLength = array.length;
 
-        for (int i = 0; i < newLength; i++) {
-            for (int j = i + 1; j < newLength; j++) {
-                if (array[i] == array[j + 1]);
-                array[j] = array[newLength - 1];
-                newLength--;
-                j++;
+        int[] intermediate = new int[array.length];
+
+        int newLength = 0;
+
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] != array[i + 1]) {
+                intermediate[newLength++] = array[i];
             }
         }
 
+        intermediate[newLength++] = array[array.length - 1];
+
         int[] uniqueArray = new int[newLength];
         for (int i = 0; i < newLength; i++) {
-            uniqueArray[i] = array[i];
+            uniqueArray[i] = intermediate[i];
         }
 
         return uniqueArray;

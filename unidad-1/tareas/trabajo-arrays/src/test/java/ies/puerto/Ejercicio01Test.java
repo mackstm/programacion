@@ -3,11 +3,11 @@ package ies.puerto;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class Ejercicio1Test {
-    Ejercicio1 ejercicio1 = new Ejercicio1();
+public class Ejercicio01Test {
+    Ejercicio01 ejercicio01 = new Ejercicio01();
 
     public void checkArraySum(int[] array, int resultOK) {
-        int result = ejercicio1.arraySum(array);
+        int result = ejercicio01.arraySum(array);
         Assertions.assertEquals(resultOK, result, "Unexpected result");
     }
 
@@ -17,7 +17,7 @@ public class Ejercicio1Test {
         checkArraySum(array, 6);
     }
     @Test
-    public void sumWithNegativeTest() {
+    public void sumWithNegativeTestOK() {
         int[] array = {1, -2, 3, -8};
         checkArraySum(array, -6);
     }

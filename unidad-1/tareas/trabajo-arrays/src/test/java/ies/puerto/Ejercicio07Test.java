@@ -3,11 +3,11 @@ package ies.puerto;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class Ejercicio7Test {
-    Ejercicio7 ejercicio7 = new Ejercicio7();
+public class Ejercicio07Test {
+    Ejercicio07 ejercicio07 = new Ejercicio07();
 
     public void checkSort(int[] array, int[] resultOK) {
-        int[] result = ejercicio7.sortArray(array);
+        int[] result = ejercicio07.sortArray(array);
         Assertions.assertArrayEquals(resultOK, result, "Unexpected result");
     }
 
@@ -19,7 +19,7 @@ public class Ejercicio7Test {
     }
 
     @Test
-    public void sortTestNegativeOK() {
+    public void sortNegativeTestOK() {
         int[] array = {0, 7, -7, 5, 2};
         int[] resultOK = {-7, 0, 2, 5, 7};
         checkSort(array, resultOK);

@@ -5,7 +5,7 @@ package ies.puerto;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio2 {
+public class Ejercicio02 {
 
     /**
      * Calculates average of array elements

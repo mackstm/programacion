@@ -5,7 +5,7 @@ package ies.puerto;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio7 {
+public class Ejercicio07 {
     
     /**
      * Sort array using bubble sort

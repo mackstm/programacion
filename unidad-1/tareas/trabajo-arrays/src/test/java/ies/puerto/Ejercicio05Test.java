@@ -3,11 +3,11 @@ package ies.puerto;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class Ejercicio5Test {
-    Ejercicio5 ejercicio5 = new Ejercicio5();
+public class Ejercicio05Test {
+    Ejercicio05 ejercicio05 = new Ejercicio05();
 
     public void checkArraySearch(int[] array, int number, int resultOK) {
-        int result = ejercicio5.searchPosition(array, number);
+        int result = ejercicio05.searchPosition(array, number);
         Assertions.assertEquals(resultOK, result, "Unexpected result");
     }
 

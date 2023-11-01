@@ -3,11 +3,11 @@ package ies.puerto;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class Ejercicio2Test {
-    Ejercicio2 ejercicio2 = new Ejercicio2();
+public class Ejercicio02Test {
+    Ejercicio02 ejercicio02 = new Ejercicio02();
 
     public void checkArrayAverage(float[] array, float resultOK) {
-        float result = ejercicio2.averageOfArray(array);
+        float result = ejercicio02.averageOfArray(array);
         Assertions.assertEquals(resultOK, result, "Unexpected result");
     }
 
@@ -18,13 +18,13 @@ public class Ejercicio2Test {
     }
 
     @Test
-    public void averageTest2OK() {
+    public void average2TestOK() {
         float[] array = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f, 6.6f, 7.7f};
         checkArrayAverage(array, 4.4f);
     }
 
     @Test
-    public void averageTest3OK() {
+    public void average3TestOK() {
         float[] array = {0.5f, 0.2f, 0.3f};
         checkArrayAverage(array, 0.33333334f);
     }

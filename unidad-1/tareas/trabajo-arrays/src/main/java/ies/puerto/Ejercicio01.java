@@ -5,7 +5,7 @@ package ies.puerto;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio1 {
+public class Ejercicio01 {
 
     /**
      * Function that calculates the sum of elements in an array

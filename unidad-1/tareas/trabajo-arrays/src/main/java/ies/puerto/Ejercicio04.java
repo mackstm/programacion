@@ -5,7 +5,7 @@ package ies.puerto;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio4 {
+public class Ejercicio04 {
 
     /**
      * Assigns even numbers in array to a string

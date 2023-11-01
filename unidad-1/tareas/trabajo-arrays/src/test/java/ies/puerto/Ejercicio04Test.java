@@ -3,11 +3,11 @@ package ies.puerto;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class Ejercicio4Test {
-    Ejercicio4 ejercicio4 = new Ejercicio4();
+public class Ejercicio04Test {
+    Ejercicio04 ejercicio04 = new Ejercicio04();
 
     public void checkArrayEven(int[] array, String resultOK) {
-        String result = ejercicio4.evenNumbers(array);
+        String result = ejercicio04.evenNumbers(array);
         Assertions.assertEquals(resultOK, result, "Unexpected result");
     }
 
