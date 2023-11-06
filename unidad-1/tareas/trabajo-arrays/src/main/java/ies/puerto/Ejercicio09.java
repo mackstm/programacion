@@ -26,6 +26,7 @@ public class Ejercicio09 {
 
         for (int i = 0; i < array1.length; i++) {
             result[i] = array1[i];
+            result[array1.length + i] = array2[i];
         }
 
         for (int i = 0; i < array2.length; i++) {
