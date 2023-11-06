@@ -1,15 +1,18 @@
 package ies.puerto;
 
 /**
+ * Class that stores and shows people's data
  * @author Jose Maximiliano Boada Martin
  */
 
 public class Person {
-    //Properties
+    /**
+     * Properties
+     */
     private String name;
     private int age;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
 
     /**
      * Default constructor
@@ -53,7 +56,7 @@ public class Person {
      * @param email of person
      * @param phoneNumber of person
      */
-    public Person(String name, int age, String email, int phoneNumber) {
+    public Person(String name, int age, String email, String phoneNumber) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -75,7 +78,7 @@ public class Person {
         return email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -83,17 +86,14 @@ public class Person {
         this.age = age;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    //public void printDetails() {
-    //    System.out.println("Name: " + name);
-    //    System.out.println("Age: " + age);
-    //    System.out.println("Email: " + email);
-    //    System.out.println("Phone number: " + phoneNumber);
-    //}
-
+    /**
+     * Prints details of person
+     * @return string of details
+     */
     public String printDetails() {
         return "Name: " + name + "\nAge: " + age + "\nEmail: " + email + "\nPhone number: " + phoneNumber;
     }
