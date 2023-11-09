@@ -53,6 +53,7 @@ public class Book {
      * @return string with details
      */
     public String printDetails() {
-        return "Title: " + title + "\nAuthor: " + author + "\nYear published: " + yearPublished;
+        return "Title: " + title + "\nAuthor: " + author + "\nYear published: " 
+            + yearPublished;
     }
 }

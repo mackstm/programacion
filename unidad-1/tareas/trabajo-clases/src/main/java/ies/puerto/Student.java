@@ -64,7 +64,8 @@ public class Student {
     }
 
     public String printDetails() {
-        return "Name: " + name + "\nAge: " + "\nDegree: " + degree + "\nAverage of grades: " + averageGrades;
+        return "Name: " + name + "\nAge: " + age + "\nDegree: " + degree + 
+            "\nAverage of grades: " + averageGrades;
     }
 
     public boolean isPassed() {
