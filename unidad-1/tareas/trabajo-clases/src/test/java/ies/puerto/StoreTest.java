@@ -43,4 +43,22 @@ public class StoreTest {
         Assertions.assertEquals(product2After.getStock(), 
             store.getProducts().get(1).getStock());
     }
+
+    @Test
+    public void inventoryTestOK() {
+        Store store = new Store();
+
+        Product product1 = new Product("Avocado", 10.50f, 20);
+        Product product2 = new Product("Lemon", 2.20f, 50);
+
+        store.addProduct(product1);
+        store.addProduct(product2);
+
+        String result = store.showInventory();
+
+        String resultOK = "Product ID: 1\nName: Avocado\nPrice: 10.5\nStock: 20\n\n" +
+                "Product ID: 2\nName: Lemon\nPrice: 2.2\nStock: 50\n\n";
+
+        Assertions.assertEquals(resultOK, result, "Unexpected result");
+    }
 }
