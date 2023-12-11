@@ -65,7 +65,7 @@ public class Email {
      * @throws InvalidEmailException to check if email is valid
      */
     public void validateEmail() throws InvalidEmailException{
-        String regex = "[a-zA-Z\\d._%+-]+@[a-zA-Z\\d.-]+\\.[a-zA-Z][a-zA-Z]+$";
+        String regex = "^[a-zA-Z\\d._%+-]+@[a-zA-Z\\d.-]+\\.[a-zA-Z][a-zA-Z]+$";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(emailName);
