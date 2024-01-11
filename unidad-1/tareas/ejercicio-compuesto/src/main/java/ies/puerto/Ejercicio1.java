@@ -18,7 +18,7 @@ public class Ejercicio1 {
         }
         char[][] hourGlassMatrix = ejercicio1.makeHourGlass(size);
 
-        for (int i = 0; i < size + 1; i++) {
+        for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (hourGlassMatrix[i][j] == 0) {
                     System.out.print(" ");
@@ -32,17 +32,14 @@ public class Ejercicio1 {
 
     public char[][] makeHourGlass(int size) {
 
-        char[][] hourGlassMatrix = new char[size + 1][size];
+        char[][] hourGlassMatrix = new char[size][size];
 
-        for (int i = 0; i < size + 1; i++) {
+        for (int i = 0; i < size; i++) {
             for (int j = i; j < (size - i); j++) {
-                hourGlassMatrix[i][j] = '*';
-                hourGlassMatrix[size - i][j] = '*';
+                hourGlassMatrix[i + size / 3][j] = '*';
+                hourGlassMatrix[size - (size / 3) - i][j] = '*';
             }
         }
-
-
-
         return hourGlassMatrix;
     }
 }
