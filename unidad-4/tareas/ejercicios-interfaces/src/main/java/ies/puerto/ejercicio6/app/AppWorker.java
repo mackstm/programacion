@@ -13,5 +13,9 @@ public class AppWorker {
     public static void main(String[] args) {
         professor = new Professor("Pepe", "01/01/1980", 1050f, "professor", "IT");
         student= new Student("Pepito", "01/01/2000", "1ºDAM");
+        System.out.println(professor);
+        System.out.println();
+        System.out.println(student);
+        System.out.println();
     }
 }

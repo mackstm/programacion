@@ -88,6 +88,7 @@ public class Professor extends Employee {
     public String toString() {
         return "Name: " + getName() +
                 "\nDate of birth: " + getDateOfBirth() +
+                "\nAge: " + calcAge() +
                 "\nSalary: " + getSalary() +
                 "\nJob: " + getJob() +
                 "\nSpecialty: " + specialty;

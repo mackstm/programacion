@@ -65,6 +65,7 @@ public class Student extends Person {
     public String toString() {
         return "Name: " + getName() +
                 "\nDate of birth: " + getDateOfBirth() +
+                "\nAge: " + calcAge() +
                 "\nCurrent Grade: " + yearGrade;
     }
 }

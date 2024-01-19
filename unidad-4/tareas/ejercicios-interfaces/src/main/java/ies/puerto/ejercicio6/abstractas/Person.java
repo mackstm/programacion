@@ -94,6 +94,7 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Name: " + name +
-                "\nDate of birth: " + dateOfBirth;
+                "\nDate of birth: " + dateOfBirth +
+                "\nAge: " + calcAge();
     }
 }

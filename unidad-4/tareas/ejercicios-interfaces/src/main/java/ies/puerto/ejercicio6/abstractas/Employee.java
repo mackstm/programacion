@@ -84,6 +84,7 @@ public abstract class Employee extends Person implements IWorker{
     public String toString() {
         return "Name: " + getName() +
                 "\nDate of birth: " + getDateOfBirth() +
+                "\nAge: " + calcAge() +
                 "\nSalary: " + salary +
                 "\nJob: " + job;
     }
