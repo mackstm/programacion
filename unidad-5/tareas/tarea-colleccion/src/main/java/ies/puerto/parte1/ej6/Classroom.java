@@ -1,4 +1,6 @@
-package ies.puerto.parte1.ej3;
+package ies.puerto.parte1.ej6;
+
+import ies.puerto.parte1.ej3.Student;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,16 +1,15 @@
-package ies.puerto.parte1;
+package ies.puerto.parte1.ej2;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
  * Arraylist with strings, print only elements that start by the letter 'A'
  * @author Jose Maximiliano Boada Martin
  */
-public class Ejercicio2 {
+public class AppStartWithA {
     static List<String> stringList;
     public static void main(String[] args) {
         stringList = new ArrayList<>();

@@ -1,4 +1,4 @@
-package ies.puerto.parte1;
+package ies.puerto.parte1.ej1;
 
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
  * @author Jose Maximiliano Boada Martin
  */
 
-public class Ejercicio1 {
+public class AppNumbersArray {
     static List<Integer> evenNumberList;
     static List<Integer> oddNumberList;
 
