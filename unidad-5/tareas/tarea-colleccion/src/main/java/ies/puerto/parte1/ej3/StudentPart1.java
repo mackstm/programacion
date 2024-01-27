@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Student class for exercise 3
+ * Student class for exercise 3 (class tested in package ej6 with AppClasroom)
  * @author Jose Maximiliano Boada Martin
  */
-public class Student {
+public class StudentPart1 {
     /**
      * Properties
      */
@@ -19,14 +19,14 @@ public class Student {
     /**
      * Default constructor
      */
-    public Student() {}
+    public StudentPart1() {}
 
     /**
      * Constructor with name and last name parameters
      * @param name of student
      * @param lastName of student
      */
-    public Student(String name, String lastName) {
+    public StudentPart1(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
         grades = new ArrayList<>();
@@ -38,7 +38,7 @@ public class Student {
      * @param lastName of student
      * @param grades of student
      */
-    public Student(String name, String lastName, List<Float> grades) {
+    public StudentPart1(String name, String lastName, List<Float> grades) {
         this.name = name;
         this.lastName = lastName;
         this.grades = grades;
@@ -96,7 +96,7 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Student student = (Student) o;
+        StudentPart1 student = (StudentPart1) o;
 
         if (!Objects.equals(name, student.name)) return false;
         return Objects.equals(lastName, student.lastName);

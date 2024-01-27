@@ -1,6 +1,6 @@
 package ies.puerto.parte1.ej6;
 
-import ies.puerto.parte1.ej3.Student;
+import ies.puerto.parte1.ej3.StudentPart1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,23 +10,23 @@ import java.util.Objects;
  * Classroom with students
  * @author Jose Maximiliano Boada Martin
  */
-public class Classroom {
+public class ClassroomPart1 {
     /**
      * Properties
      */
     private String id;
-    private List<Student> students;
+    private List<StudentPart1> students;
 
     /**
      * Default constructor
      */
-    public Classroom() {}
+    public ClassroomPart1() {}
 
     /**
      * Constructor with only ID
      * @param id of classroom
      */
-    public Classroom(String id) {
+    public ClassroomPart1(String id) {
         this.id = id;
         students = new ArrayList<>();
     }
@@ -36,7 +36,7 @@ public class Classroom {
      * @param id of classroom
      * @param students of classroom
      */
-    public Classroom(String id, List<Student> students) {
+    public ClassroomPart1(String id, List<StudentPart1> students) {
         this.id = id;
         this.students = students;
     }
@@ -52,11 +52,11 @@ public class Classroom {
         this.id = id;
     }
 
-    public List<Student> getStudents() {
+    public List<StudentPart1> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(List<StudentPart1> students) {
         this.students = students;
     }
 
@@ -69,7 +69,7 @@ public class Classroom {
         if (students.isEmpty()) {
             return result;
         }
-        for (Student student : students) {
+        for (StudentPart1 student : students) {
             result = student.average();
         }
         return result / students.size();
@@ -85,7 +85,7 @@ public class Classroom {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Classroom classroom = (Classroom) o;
+        ClassroomPart1 classroom = (ClassroomPart1) o;
 
         return Objects.equals(id, classroom.id);
     }
