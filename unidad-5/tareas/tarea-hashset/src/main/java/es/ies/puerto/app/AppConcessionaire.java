@@ -1,7 +1,5 @@
 package es.ies.puerto.app;
 
-
-import es.ies.puerto.abstracts.Vehicle;
 import es.ies.puerto.vehicles.*;
 
 import java.util.Scanner;
@@ -13,20 +11,7 @@ import java.util.Scanner;
 
 public class AppConcessionaire {
     public static void main(String[] args) {
-        /**
-        Concessionaire concessionaire = new Concessionaire();
-        Motorcycle motorcycle1 = new Motorcycle("Harley-Davidson","Sportster","MNO345",50);
-        Motorcycle motorcycle2 = new Motorcycle("Yamaha","YZF R6","PQR678",90);
-        Motorcycle motorcycle3 = new Motorcycle("Ducati","Monster","STU901",70);
-        Motorcycle motorcycle4 = new Motorcycle("Suzuki","GSX-R750","VWX234",80);
-        Motorcycle motorcycle5 = new Motorcycle("Kawasaki","Ninja","ZAB567",85);
 
-        Car car1 = new Car("Toyota","Corolla","ABC123",60);
-        Car car2 = new Car("Honda","Civic","XYZ789",75);
-        Car car3 = new Car("Ford","Mustang","DEF456",100);
-        Car car4 = new Car("Chevrolet","Impala","GHI789",80);
-        Car car5 = new Car("Volkswagen","Golf","JKL012",65);
-         */
         Scanner read = new Scanner(System.in);
         int vehicleOption;
         int operationOption;
@@ -39,6 +24,7 @@ public class AppConcessionaire {
             System.out.println("2. Cars");
             System.out.println("3. Trucks");
             System.out.println("4. Bicycles");
+            System.out.println("5. List all current vehicles");
             System.out.println("0. Exit");
             System.out.println("Please choose what vehicle you wish to work with: ");
             vehicleOption = read.nextInt();
@@ -53,22 +39,29 @@ public class AppConcessionaire {
                         System.out.println("1. Add motorcycle");
                         System.out.println("2. Remove motorcycle");
                         System.out.println("3. Show motorcycle list");
-                        System.out.println("4. Search motorcycle by license key");
+                        System.out.println("4. Search motorcycle by license plate");
                         System.out.println("5. Show average speed");
                         System.out.println("0. Return to vehicle selection");
                         System.out.println("Please choose an operation.");
                         operationOption = read.nextInt();
                         switch (operationOption) {
                             case 1:
-
+                                Motorcycle motorcycle = new Motorcycle(readBrand(), readModel(), readLicense(),
+                                        readSpeed());
+                                concessionaire.addMotorcycle(motorcycle);
                                 break;
                             case 2:
+                                Motorcycle motorcycleToRemove = concessionaire.obtainMotorcycle(readLicense());
+                                concessionaire.removeMotorcycle(motorcycleToRemove);
                                 break;
                             case 3:
+                                System.out.println(concessionaire.getMotorcycles());
                                 break;
                             case 4:
+                                System.out.println(concessionaire.obtainMotorcycle(readLicense()));
                                 break;
                             case 5:
+                                System.out.println(concessionaire.averageMotorcycleSpeed());
                                 break;
                             default:
                                 System.out.println("Invalid option, please input a different option");
@@ -78,10 +71,121 @@ public class AppConcessionaire {
                     } while (operationOption != 0);
                     break;
                 case 2:
+                    do {
+                        System.out.println("____________****____________");
+                        System.out.println("------------Cars------------");
+                        System.out.println("************____************");
+                        System.out.println("1. Add car");
+                        System.out.println("2. Remove car");
+                        System.out.println("3. Show car set");
+                        System.out.println("4. Search car by license plate");
+                        System.out.println("5. Show average speed");
+                        System.out.println("0. Return to vehicle selection");
+                        System.out.println("Please choose an operation.");
+                        operationOption = read.nextInt();
+                        switch (operationOption) {
+                            case 1:
+                                Car car = new Car(readBrand(), readModel(), readLicense(), readSpeed());
+                                concessionaire.addCar(car);
+                                break;
+                            case 2:
+                                Car carToRemove = concessionaire.obtainCar(readLicense());
+                                concessionaire.removeCar(carToRemove);
+                                break;
+                            case 3:
+                                System.out.println(concessionaire.getCars());
+                                break;
+                            case 4:
+                                System.out.println(concessionaire.obtainCar(readLicense()));
+                                break;
+                            case 5:
+                                System.out.println(concessionaire.averageCarSpeed());
+                                break;
+                            default:
+                                System.out.println("Invalid option, please input a different option");
+                                System.out.println();
+                                break;
+                        }
+                    } while (operationOption != 0);
                     break;
                 case 3:
+                    do {
+                        System.out.println("____________******____________");
+                        System.out.println("------------Trucks------------");
+                        System.out.println("************______************");
+                        System.out.println("1. Add truck");
+                        System.out.println("2. Remove truck");
+                        System.out.println("3. Show truck map");
+                        System.out.println("4. Search truck by license plate");
+                        System.out.println("5. Show average speed");
+                        System.out.println("0. Return to vehicle selection");
+                        System.out.println("Please choose an operation.");
+                        operationOption = read.nextInt();
+                        switch (operationOption) {
+                            case 1:
+                                 Truck truck = new Truck(readBrand(), readModel(), readLicense(), readSpeed());
+                                concessionaire.addTruck(truck);
+                                break;
+                            case 2:
+                                Truck truckToRemove = concessionaire.obtainTruck(readLicense());
+                                concessionaire.removeTruck(truckToRemove);
+                                break;
+                            case 3:
+                                System.out.println(concessionaire.getTrucks());
+                                break;
+                            case 4:
+                                System.out.println(concessionaire.obtainTruck(readLicense()));
+                                break;
+                            case 5:
+                                System.out.println(concessionaire.averageTruckSpeed());
+                                break;
+                            default:
+                                System.out.println("Invalid option, please input a different option");
+                                System.out.println();
+                                break;
+                        }
+                    } while (operationOption != 0);
                     break;
                 case 4:
+                    do {
+                        System.out.println("____________********____________");
+                        System.out.println("------------Bicycles------------");
+                        System.out.println("************________************");
+                        System.out.println("1. Add bicycle");
+                        System.out.println("2. Remove bicycle");
+                        System.out.println("3. Show bicycle list");
+                        System.out.println("4. Search bicycle by license plate");
+                        System.out.println("5. Show average speed");
+                        System.out.println("0. Return to vehicle selection");
+                        System.out.println("Please choose an operation.");
+                        operationOption = read.nextInt();
+                        switch (operationOption) {
+                            case 1:
+                                Bicycle bicycle = new Bicycle(readBrand(), readModel(), readLicense(), readSpeed());
+                                concessionaire.addBicycle(bicycle);
+                                break;
+                            case 2:
+                                Bicycle bicycleToRemove = concessionaire.obtainBicycle(readLicense());
+                                concessionaire.removeBicycle(bicycleToRemove);
+                                break;
+                            case 3:
+                                System.out.println(concessionaire.getBicycles());
+                                break;
+                            case 4:
+                                System.out.println(concessionaire.obtainBicycle(readLicense()));
+                                break;
+                            case 5:
+                                System.out.println(concessionaire.averageBicycleSpeed());
+                                break;
+                            default:
+                                System.out.println("Invalid option, please input a different option");
+                                System.out.println();
+                                break;
+                        }
+                    } while (operationOption != 0);
+                    break;
+                case 5:
+                    System.out.println(concessionaire);
                     break;
                 case 0:
                     System.out.println("Exiting program...");
@@ -94,19 +198,44 @@ public class AppConcessionaire {
         } while (vehicleOption != 0);
     }
 
-    public static Motorcycle readMotorcycle() {
-        Motorcycle motorcycle = new Motorcycle();
-
+    /**
+     * Returns license of vehicle
+     * @return license plate
+     */
+    public static String readBrand() {
         Scanner read = new Scanner(System.in);
-        System.out.println("Input a brand: ");
-        motorcycle.setBrand(read.next());
-        System.out.println("Input a model: ");
-        motorcycle.setModel(read.next());
-        System.out.println("Input a license plate: ");
-        motorcycle.setLicensePlate(read.next());
-        System.out.println("Input the vehicle's speed: ");
-        motorcycle.setSpeed(read.nextInt());
-
-        return motorcycle;
+        System.out.println("Input brand: ");
+        return read.next();
     }
+
+    /**
+     * Returns license of vehicle
+     * @return license plate
+     */
+    public static String readModel() {
+        Scanner read = new Scanner(System.in);
+        System.out.println("Input model: ");
+        return read.next();
+    }
+
+    /**
+     * Returns license of vehicle
+     * @return license plate
+     */
+    public static String readLicense() {
+        Scanner read = new Scanner(System.in);
+        System.out.println("Input license plate: ");
+        return read.next();
+    }
+
+    /**
+     * Returns license of vehicle
+     * @return license plate
+     */
+    public static int readSpeed() {
+        Scanner read = new Scanner(System.in);
+        System.out.println("Input speed: ");
+        return read.nextInt();
+    }
+
 }

@@ -94,7 +94,7 @@ public class Concessionaire {
      * @return true or false
      */
     public boolean removeMotorcycle(Motorcycle motorcycle) {
-        if (motorcycles.contains(motorcycle)) {
+        if (!motorcycles.contains(motorcycle)) {
             return true;
         }
         return motorcycles.remove(motorcycle);
@@ -150,7 +150,7 @@ public class Concessionaire {
      * @return true or false
      */
     public boolean removeCar(Car car) {
-        if (cars.contains(car)) {
+        if (!cars.contains(car)) {
             return true;
         }
 
@@ -207,7 +207,7 @@ public class Concessionaire {
      * @return true or false
      */
     public boolean removeTruck(Truck truck) {
-        if (trucks.containsValue(truck)) {
+        if (!trucks.containsValue(truck)) {
             return true;
         }
         trucks.remove(truck.getLicensePlate());
@@ -261,7 +261,7 @@ public class Concessionaire {
      * @return true or false
      */
     public boolean removeBicycle(Bicycle bicycle) {
-        if (bicycles.containsValue(bicycle)) {
+        if (!bicycles.containsValue(bicycle)) {
             return true;
         }
         bicycles.remove(bicycle.getLicensePlate());
@@ -298,9 +298,9 @@ public class Concessionaire {
 
     @Override
     public String toString() {
-        return "{Cars: " + cars +
-                ", Motorcycles: " + motorcycles +
-                ", Trucks: " + trucks +
-                ", Bicycles: " + bicycles + "}";
+        return "(Motorcycles: " + motorcycles +
+                "\nCars: " + cars +
+                "\nTrucks: " + trucks +
+                "\nBicycles: " + bicycles + ")";
     }
 }
