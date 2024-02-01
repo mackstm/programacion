@@ -226,6 +226,76 @@ public class Concessionaire {
         return null;
     }
 
+    /**
+     * Method that calculates average speed of trucks
+     * @return average speed
+     */
+    public float averageTruckSpeed() {
+        float result = 0f;
+        if (trucks.isEmpty()) {
+            return result;
+        }
+
+        for (Truck truck : trucks.values()) {
+            result += truck.getSpeed();
+        }
+        return result / trucks.size();
+    }
+
+    /**
+     * Adds bicycle to map, checking if element already exists
+     * @param bicycle to add
+     * @return true or false
+     */
+    public boolean addBicycle(Bicycle bicycle) {
+        if (bicycles.containsValue(bicycle)) {
+            return true;
+        }
+        bicycles.put(bicycle.getLicensePlate(), bicycle);
+        return false;
+    }
+
+    /**
+     * Removes bicycle from map
+     * @param bicycle to remove
+     * @return true or false
+     */
+    public boolean removeBicycle(Bicycle bicycle) {
+        if (bicycles.containsValue(bicycle)) {
+            return true;
+        }
+        bicycles.remove(bicycle.getLicensePlate());
+        return false;
+    }
+
+    /**
+     * Searches for bicycle in map
+     * @param licensePlate for searching
+     * @return bicycle
+     */
+    public Bicycle obtainBicycle(String licensePlate) {
+        if (bicycles.containsKey(licensePlate)) {
+            return bicycles.get(licensePlate);
+        }
+        return null;
+    }
+
+    /**
+     * Method that calculates average speed of bicycles
+     * @return average speed
+     */
+    public float averageBicycleSpeed() {
+        float result = 0f;
+        if (bicycles.isEmpty()) {
+            return result;
+        }
+
+        for (Bicycle bicycle : bicycles.values()) {
+            result += bicycle.getSpeed();
+        }
+        return result / bicycles.size();
+    }
+
     @Override
     public String toString() {
         return "{Cars: " + cars +

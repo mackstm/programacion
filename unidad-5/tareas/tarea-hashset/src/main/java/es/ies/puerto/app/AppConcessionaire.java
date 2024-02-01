@@ -1,9 +1,10 @@
 package es.ies.puerto.app;
 
 
-import es.ies.puerto.vehicles.Car;
-import es.ies.puerto.vehicles.Concessionaire;
-import es.ies.puerto.vehicles.Motorcycle;
+import es.ies.puerto.abstracts.Vehicle;
+import es.ies.puerto.vehicles.*;
+
+import java.util.Scanner;
 
 /**
  * App that tests functionalities of vehicle interface and all derivatives
@@ -12,6 +13,7 @@ import es.ies.puerto.vehicles.Motorcycle;
 
 public class AppConcessionaire {
     public static void main(String[] args) {
+        /**
         Concessionaire concessionaire = new Concessionaire();
         Motorcycle motorcycle1 = new Motorcycle("Harley-Davidson","Sportster","MNO345",50);
         Motorcycle motorcycle2 = new Motorcycle("Yamaha","YZF R6","PQR678",90);
@@ -24,22 +26,87 @@ public class AppConcessionaire {
         Car car3 = new Car("Ford","Mustang","DEF456",100);
         Car car4 = new Car("Chevrolet","Impala","GHI789",80);
         Car car5 = new Car("Volkswagen","Golf","JKL012",65);
+         */
+        Scanner read = new Scanner(System.in);
+        int vehicleOption;
+        int operationOption;
+        Concessionaire concessionaire = new Concessionaire();
+        do {
+            System.out.println("____________**************____________");
+            System.out.println("------------Concessionaire------------");
+            System.out.println("************______________************");
+            System.out.println("1. Motorcycles");
+            System.out.println("2. Cars");
+            System.out.println("3. Trucks");
+            System.out.println("4. Bicycles");
+            System.out.println("0. Exit");
+            System.out.println("Please choose what vehicle you wish to work with: ");
+            vehicleOption = read.nextInt();
+            System.out.println();
 
+            switch (vehicleOption) {
+                case 1:
+                    do {
+                        System.out.println("____________***********____________");
+                        System.out.println("------------Motorcycles------------");
+                        System.out.println("************___________************");
+                        System.out.println("1. Add motorcycle");
+                        System.out.println("2. Remove motorcycle");
+                        System.out.println("3. Show motorcycle list");
+                        System.out.println("4. Search motorcycle by license key");
+                        System.out.println("5. Show average speed");
+                        System.out.println("0. Return to vehicle selection");
+                        System.out.println("Please choose an operation.");
+                        operationOption = read.nextInt();
+                        switch (operationOption) {
+                            case 1:
 
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                            default:
+                                System.out.println("Invalid option, please input a different option");
+                                System.out.println();
+                                break;
+                        }
+                    } while (operationOption != 0);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 0:
+                    System.out.println("Exiting program...");
+                    break;
+                default:
+                    System.out.println("Invalid option, please input a different option");
+                    System.out.println();
+                    break;
+            }
+        } while (vehicleOption != 0);
+    }
 
-        //Testing add methods
-        concessionaire.addMotorcycle(motorcycle1);
-        concessionaire.addMotorcycle(motorcycle2);
-        concessionaire.addMotorcycle(motorcycle3);
-        concessionaire.addMotorcycle(motorcycle4);
-        concessionaire.addMotorcycle(motorcycle5);
-        concessionaire.addMotorcycle(motorcycle1);
+    public static Motorcycle readMotorcycle() {
+        Motorcycle motorcycle = new Motorcycle();
 
-        concessionaire.addCar(car1);
-        concessionaire.addCar(car2);
-        concessionaire.addCar(car3);
-        concessionaire.addCar(car4);
-        concessionaire.addCar(car5);
+        Scanner read = new Scanner(System.in);
+        System.out.println("Input a brand: ");
+        motorcycle.setBrand(read.next());
+        System.out.println("Input a model: ");
+        motorcycle.setModel(read.next());
+        System.out.println("Input a license plate: ");
+        motorcycle.setLicensePlate(read.next());
+        System.out.println("Input the vehicle's speed: ");
+        motorcycle.setSpeed(read.nextInt());
 
+        return motorcycle;
     }
 }
