@@ -43,19 +43,19 @@ public abstract class Product {
         this.price = price;
     }
 
-    public String getdEntry() {
+    public String getDEntry() {
         return dEntry;
     }
 
-    public void setdEntry(String dEntry) {
+    public void setDEntry(String dEntry) {
         this.dEntry = dEntry;
     }
 
-    public String getdExpiry() {
+    public String getDExpiry() {
         return dExpiry;
     }
 
-    public void setdExpiry(String dExpiry) {
+    public void setDExpiry(String dExpiry) {
         this.dExpiry = dExpiry;
     }
 
