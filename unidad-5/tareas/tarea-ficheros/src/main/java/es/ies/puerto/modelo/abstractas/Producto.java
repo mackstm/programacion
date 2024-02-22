@@ -1,6 +1,6 @@
-package es.ies.puerto.abstractas;
+package es.ies.puerto.modelo.abstractas;
 
-import es.ies.puerto.interfaces.IVendible;
+import es.ies.puerto.modelo.interfaces.IVendible;
 
 import java.util.Objects;
 

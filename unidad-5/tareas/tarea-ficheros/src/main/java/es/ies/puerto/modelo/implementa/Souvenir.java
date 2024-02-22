@@ -1,49 +1,48 @@
-package es.ies.puerto.implementa;
+package es.ies.puerto.modelo.implementa;
 
-import es.ies.puerto.abstractas.Producto;
+import es.ies.puerto.modelo.abstractas.Producto;
 
 /**
- * Clase para los aparatos de la tienda
+ * Clase de souvenirs que extienden producto
  * @author Jose Maximiliano Boada Martin
  */
-public class Aparato extends Producto {
+public class Souvenir extends Producto {
 
     /**
      * Constructor por defecto
      */
-    public Aparato() {}
+    public Souvenir() {}
 
     /**
      * Constructor con identificador como parametro
-     * @param udi del aparato
+     * @param udi del souvenir
      */
-    public Aparato(String udi) {
+    public Souvenir(String udi) {
         super(udi);
     }
 
     /**
      * Constructor con todos los parametros
-     * @param nombre del aparato
-     * @param precio del aparato
-     * @param fechaEntrada del aparato
-     * @param udi del aparato
+     * @param nombre del souvenir
+     * @param precio del souvenir
+     * @param fechaEntrada del souvenir
+     * @param udi del souvenir
      */
-
-    public Aparato(String nombre, float precio, String fechaEntrada, String udi) {
+    public Souvenir(String nombre, float precio, String fechaEntrada, String udi) {
         super(nombre, precio, fechaEntrada, udi);
     }
 
     /**
-     * Calcula el precio maximo para los aparatos
+     * Calcula el precio maximo para los souvenirs
      * @return precio máximo
      */
     @Override
     public float precioMaximo() {
-        return getPrecio() * 1.42f;
+        return getPrecio() * 1.3f;
     }
 
     /**
-     * Cantidad disponible de aparatos
+     * Cantidad disponible de souvenirs
      * @return cantidad disponible
      */
     @Override

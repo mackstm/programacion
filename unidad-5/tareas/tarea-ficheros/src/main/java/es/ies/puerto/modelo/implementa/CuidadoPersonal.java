@@ -1,6 +1,6 @@
-package es.ies.puerto.implementa;
+package es.ies.puerto.modelo.implementa;
 
-import es.ies.puerto.abstractas.ProductoRecomendable;
+import es.ies.puerto.modelo.abstractas.ProductoRecomendable;
 
 /**
  * Clase para productos de cuidado personal

@@ -1,4 +1,4 @@
-package es.ies.puerto.interfaces;
+package es.ies.puerto.modelo.interfaces;
 
 /**
  * Interfaz para manejar productos recomendables

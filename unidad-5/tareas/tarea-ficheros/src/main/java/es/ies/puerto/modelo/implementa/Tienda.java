@@ -1,6 +1,4 @@
-package es.ies.puerto.implementa;
-
-import es.ies.puerto.abstractas.Producto;
+package es.ies.puerto.modelo.implementa;
 
 import java.util.*;
 
@@ -12,10 +10,10 @@ public class Tienda {
     /**
      * Propiedades
      */
-    private List<Producto> alimentos;
-    private Set<Producto> aparatos;
-    private Map<String, Producto> souvenirMap;
-    private Set<Producto> productosCuidado;
+    private List<Alimento> alimentos;
+    private Set<Aparato> aparatos;
+    private Map<String, Souvenir> souvenirMap;
+    private Set<CuidadoPersonal> productosCuidado;
 
     /**
      * Constructor por defecto
@@ -28,51 +26,37 @@ public class Tienda {
     }
 
     /**
-     * Constructor con todos los parametros relevantes
-     * @param alimentos de tienda
-     * @param aparatos de tienda
-     * @param souvenirMap de tienda
-     * @param productosCuidado de tienda
-     */
-    public Tienda(List<Producto> alimentos, Set<Producto> aparatos, Map<String, Producto> souvenirMap, Set<Producto> productosCuidado) {
-        this.alimentos = alimentos;
-        this.aparatos = aparatos;
-        this.souvenirMap = souvenirMap;
-        this.productosCuidado = productosCuidado;
-    }
-
-    /**
      * Getters y setters
      */
-    public List<Producto> getAlimentos() {
+    public List<Alimento> getAlimentos() {
         return alimentos;
     }
 
-    public void setAlimentos(List<Producto> alimentos) {
+    public void setAlimentos(List<Alimento> alimentos) {
         this.alimentos = alimentos;
     }
 
-    public Set<Producto> getAparatos() {
+    public Set<Aparato> getAparatos() {
         return aparatos;
     }
 
-    public void setAparatos(Set<Producto> aparatos) {
+    public void setAparatos(Set<Aparato> aparatos) {
         this.aparatos = aparatos;
     }
 
-    public Map<String, Producto> getSouvenirMap() {
+    public Map<String, Souvenir> getSouvenirMap() {
         return souvenirMap;
     }
 
-    public void setSouvenirMap(Map<String, Producto> souvenirMap) {
+    public void setSouvenirMap(Map<String, Souvenir> souvenirMap) {
         this.souvenirMap = souvenirMap;
     }
 
-    public Set<Producto> getProductosCuidado() {
+    public Set<CuidadoPersonal> getProductosCuidado() {
         return productosCuidado;
     }
 
-    public void setProductosCuidado(Set<Producto> productosCuidado) {
+    public void setProductosCuidado(Set<CuidadoPersonal> productosCuidado) {
         this.productosCuidado = productosCuidado;
     }
 

@@ -1,6 +1,6 @@
-package es.ies.puerto.abstractas;
+package es.ies.puerto.modelo.abstractas;
 
-import es.ies.puerto.interfaces.IRecomendable;
+import es.ies.puerto.modelo.interfaces.IRecomendable;
 
 /**
  * Clase abstracta que extiende de producto e implementa la interfaz de de IRecomendable
