@@ -9,11 +9,6 @@ import java.util.List;
  * @author Jose Maximiliano Boada Martin
  */
 public interface IFichero {
-    /**
-     * private List<Alimento> alimentos;
-     *     private Set<Aparato> aparatos;
-     *     private Map<String, Souvenir> souvenirMap;
-     *     private Set<CuidadoPersonal> productosCuidado;
-     */
-
+    public List<Alimento> lecturaAlimento();
+    public String escrituraAlimento();
 }
