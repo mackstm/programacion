@@ -1,5 +1,9 @@
 package es.ies.puerto.negocio;
 
+import es.ies.puerto.modelo.entity.Alimento;
+import es.ies.puerto.modelo.entity.Aparato;
+import es.ies.puerto.modelo.entity.CuidadoPersonal;
+import es.ies.puerto.modelo.entity.Souvenir;
 import es.ies.puerto.modelo.implementa.*;
 
 /**

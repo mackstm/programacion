@@ -1,4 +1,4 @@
-package es.ies.puerto.modelo.implementa;
+package es.ies.puerto.modelo.entity;
 
 import es.ies.puerto.modelo.abstractas.ProductoRecomendable;
 

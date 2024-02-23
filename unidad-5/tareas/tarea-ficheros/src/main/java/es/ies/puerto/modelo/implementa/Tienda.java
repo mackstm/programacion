@@ -1,5 +1,10 @@
 package es.ies.puerto.modelo.implementa;
 
+import es.ies.puerto.modelo.entity.Alimento;
+import es.ies.puerto.modelo.entity.Aparato;
+import es.ies.puerto.modelo.entity.CuidadoPersonal;
+import es.ies.puerto.modelo.entity.Souvenir;
+
 import java.util.*;
 
 /**
