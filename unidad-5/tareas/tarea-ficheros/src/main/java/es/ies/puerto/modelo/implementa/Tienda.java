@@ -1,9 +1,6 @@
 package es.ies.puerto.modelo.implementa;
 
-import es.ies.puerto.modelo.entity.Alimento;
-import es.ies.puerto.modelo.entity.Aparato;
-import es.ies.puerto.modelo.entity.CuidadoPersonal;
-import es.ies.puerto.modelo.entity.Souvenir;
+import es.ies.puerto.modelo.abstractas.Producto;
 
 import java.util.*;
 
@@ -15,10 +12,10 @@ public class Tienda {
     /**
      * Propiedades
      */
-    private List<Alimento> alimentos;
-    private Set<Aparato> aparatos;
-    private Map<String, Souvenir> souvenirMap;
-    private Set<CuidadoPersonal> productosCuidado;
+    private List<Producto> alimentos;
+    private Set<Producto> aparatos;
+    private Map<String, Producto> souvenirMap;
+    private Set<Producto> productosCuidado;
 
     /**
      * Constructor por defecto
@@ -33,35 +30,35 @@ public class Tienda {
     /**
      * Getters y setters
      */
-    public List<Alimento> getAlimentos() {
+    public List<Producto> getAlimentos() {
         return alimentos;
     }
 
-    public void setAlimentos(List<Alimento> alimentos) {
+    public void setAlimentos(List<Producto> alimentos) {
         this.alimentos = alimentos;
     }
 
-    public Set<Aparato> getAparatos() {
+    public Set<Producto> getAparatos() {
         return aparatos;
     }
 
-    public void setAparatos(Set<Aparato> aparatos) {
+    public void setAparatos(Set<Producto> aparatos) {
         this.aparatos = aparatos;
     }
 
-    public Map<String, Souvenir> getSouvenirMap() {
+    public Map<String, Producto> getSouvenirMap() {
         return souvenirMap;
     }
 
-    public void setSouvenirMap(Map<String, Souvenir> souvenirMap) {
+    public void setSouvenirMap(Map<String, Producto> souvenirMap) {
         this.souvenirMap = souvenirMap;
     }
 
-    public Set<CuidadoPersonal> getProductosCuidado() {
+    public Set<Producto> getProductosCuidado() {
         return productosCuidado;
     }
 
-    public void setProductosCuidado(Set<CuidadoPersonal> productosCuidado) {
+    public void setProductosCuidado(Set<Producto> productosCuidado) {
         this.productosCuidado = productosCuidado;
     }
 
