@@ -14,8 +14,8 @@ public class Tienda {
      */
     private List<Producto> alimentos;
     private Set<Producto> aparatos;
-    private Map<String, Producto> souvenirMap;
-    private Set<Producto> productosCuidado;
+    private Set<Producto> souvenirs;
+    private Map<String, Producto> pCuidadoMap;
 
     /**
      * Constructor por defecto
@@ -23,8 +23,8 @@ public class Tienda {
     public Tienda () {
         alimentos = new ArrayList<>();
         aparatos = new HashSet<>();
-        souvenirMap = new HashMap<>();
-        productosCuidado = new HashSet<>();
+        souvenirs = new HashSet<>();
+        pCuidadoMap = new HashMap<>();
     }
 
     /**
@@ -46,20 +46,20 @@ public class Tienda {
         this.aparatos = aparatos;
     }
 
-    public Map<String, Producto> getSouvenirMap() {
-        return souvenirMap;
+    public Set<Producto> getSouvenirs() {
+        return souvenirs;
     }
 
-    public void setSouvenirMap(Map<String, Producto> souvenirMap) {
-        this.souvenirMap = souvenirMap;
+    public void setSouvenirs(Set<Producto> souvenirs) {
+        this.souvenirs = souvenirs;
     }
 
-    public Set<Producto> getProductosCuidado() {
-        return productosCuidado;
+    public Map<String, Producto> getPCuidadoMap() {
+        return pCuidadoMap;
     }
 
-    public void setProductosCuidado(Set<Producto> productosCuidado) {
-        this.productosCuidado = productosCuidado;
+    public void setPCuidadoMap(Map<String, Producto> pCuidadoMap) {
+        this.pCuidadoMap = pCuidadoMap;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Tienda {
         return "(" +
                 "\nAlimentos: " + alimentos +
                 "\nAparatos=" + aparatos +
-                "\n SouvenirMap=" + souvenirMap +
-                "\n ProductosCuidado=" + productosCuidado + ")";
+                "\n Souvenirs=" + souvenirs +
+                "\n pCuidadoMap=" + pCuidadoMap + ")";
     }
 }

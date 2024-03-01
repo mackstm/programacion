@@ -2,7 +2,11 @@ package es.ies.puerto.negocio;
 
 import es.ies.puerto.modelo.abstractas.Producto;
 import es.ies.puerto.modelo.entity.*;
+import es.ies.puerto.modelo.fichero.implementa.csv.FileCsv;
 import es.ies.puerto.modelo.implementa.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implementa metodos para trabajar con datos almacenados en la tienda
@@ -10,7 +14,15 @@ import es.ies.puerto.modelo.implementa.*;
  */
 public class TiendaNegocio {
     private Tienda tienda;
-    public TiendaNegocio() {}
+    private FileCsv fileCsv;
+    public TiendaNegocio() {
+        fileCsv = new FileCsv();
+        tienda = new Tienda();
+        tienda.setAlimentos(fileCsv.obtenerAlimentos());
+        tienda.setAparatos(fileCsv.obtenerAparatos());
+        tienda.setSouvenirs(fileCsv.obtenerSouvenirs());
+        tienda.setPCuidadoMap(fileCsv.obtenerCuidados());
+    }
 
     /**
      * Agrega un alimento a la lista
@@ -45,11 +57,10 @@ public class TiendaNegocio {
      */
     public Producto obtenerAlimento(String udi) {
         Producto alimento = new Alimento(udi);
-        for (Producto elemento : tienda.getAlimentos()) {
-            if (elemento.equals(alimento)) {
-                return elemento;
+            if (tienda.getAlimentos().contains(alimento)) {
+                int pos = tienda.getAlimentos().indexOf(alimento);
+                return tienda.getAlimentos().get(pos);
             }
-        }
         return null;
     }
 
@@ -87,6 +98,7 @@ public class TiendaNegocio {
      */
     public Producto obtenerAparato(String udi) {
         Producto aparato = new Aparato(udi);
+        //En el caso de los set, hay que recorrerlo con for y equals si o si, puesto que los set no tienen indices
         for (Producto elemento : tienda.getAparatos()) {
             if (elemento.equals(aparato)) {
                 return elemento;
@@ -101,8 +113,8 @@ public class TiendaNegocio {
      * @return 0 si no hubo error, 1 si el elemento ya existe
      */
     public boolean agregarSouvenir(Producto souvenir) {
-        if (!tienda.getSouvenirMap().containsKey(souvenir.getUdi())) {
-            tienda.getSouvenirMap().put(souvenir.getUdi(), souvenir);
+        if (!tienda.getSouvenirs().contains(souvenir)) {
+            tienda.getSouvenirs().add(souvenir);
             return false;
         }
         return true;
@@ -114,8 +126,8 @@ public class TiendaNegocio {
      * @return 0 si no hubo error, 1 si el elemento no existia
      */
     public boolean eliminarSouvenir(Producto souvenir) {
-        if (tienda.getSouvenirMap().containsKey(souvenir.getUdi())) {
-            tienda.getSouvenirMap().remove(souvenir.getUdi());
+        if (tienda.getSouvenirs().contains(souvenir)) {
+            tienda.getSouvenirs().remove(souvenir);
             return false;
         }
         return true;
@@ -128,7 +140,7 @@ public class TiendaNegocio {
      */
     public Producto obtenerSouvenir(String udi) {
         Producto souvenir = new Souvenir(udi);
-        for (Producto elemento : tienda.getSouvenirMap().values()) {
+        for (Producto elemento : tienda.getSouvenirs()) {
             if (elemento.equals(souvenir)) {
                 return elemento;
             }
@@ -137,14 +149,13 @@ public class TiendaNegocio {
     }
 
     /**
-     * Agrega un producto de cuidado personal al set. Un set no puede contener elementos duplicados, pero el boolean
-     * puede servir para notificar al usuario de que su producto no se ha podido agregar
+     * Agrega un producto de cuidado personal
      * @param cuidadoPersonal a agregar
      * @return 0 si no hubo error, 1 si el elemento ya existe
      */
     public boolean agregarCuidadoPersonal(Producto cuidadoPersonal) {
-        if (!tienda.getProductosCuidado().contains(cuidadoPersonal)) {
-            tienda.getProductosCuidado().add(cuidadoPersonal);
+        if (!tienda.getPCuidadoMap().containsKey(cuidadoPersonal.getUdi())) {
+            tienda.getPCuidadoMap().put(cuidadoPersonal.getUdi(), cuidadoPersonal);
             return false;
         }
         return true;
@@ -156,8 +167,8 @@ public class TiendaNegocio {
      * @return 0 si no hubo error, 1 si el elemento no existia
      */
     public boolean eliminarCuidadoPersonal(Producto cuidadoPersonal) {
-        if (tienda.getProductosCuidado().contains(cuidadoPersonal)) {
-            tienda.getProductosCuidado().remove(cuidadoPersonal);
+        if (tienda.getPCuidadoMap().containsKey(cuidadoPersonal.getUdi())) {
+            tienda.getPCuidadoMap().remove(cuidadoPersonal.getUdi());
             return false;
         }
         return true;
@@ -169,11 +180,8 @@ public class TiendaNegocio {
      * @return producto de cuidado personal
      */
     public Producto obtenerCuidadoPersonal(String udi) {
-        Producto cuidadoPersonal = new CuidadoPersonal(udi);
-        for (Producto elemento : tienda.getProductosCuidado()) {
-            if (elemento.equals(cuidadoPersonal)) {
-                return elemento;
-            }
+        if (tienda.getPCuidadoMap().containsKey(udi)) {
+            return tienda.getPCuidadoMap().get(udi);
         }
         return null;
     }
@@ -192,7 +200,7 @@ public class TiendaNegocio {
         for (Producto alimento : tienda.getAlimentos()) {
             Alimento alimentoAux = (Alimento) alimento;
             if (!alimentoAux.verificarCaducidad()) {
-                suma += alimento.getPrecio();
+                resultado += alimento.getPrecio();
             }
         }
         return resultado;
@@ -207,10 +215,8 @@ public class TiendaNegocio {
         if (tienda.getAparatos().isEmpty()) {
             return resultado;
         }
-
-        float suma = 0;
         for (Producto aparato : tienda.getAparatos()) {
-            suma += aparato.getPrecio();
+            resultado += aparato.getPrecio();
         }
         return resultado;
     }
@@ -221,13 +227,11 @@ public class TiendaNegocio {
      */
     public float precioTotalSouvenirs() {
         float resultado = 0f;
-        if (tienda.getSouvenirMap().isEmpty()) {
+        if (tienda.getSouvenirs().isEmpty()) {
             return resultado;
         }
-
-        float suma = 0;
-        for (Producto souvenir : tienda.getSouvenirMap().values()) {
-            suma += souvenir.getPrecio();
+        for (Producto souvenir : tienda.getSouvenirs()) {
+            resultado += souvenir.getPrecio();
         }
         return resultado;
     }
@@ -238,13 +242,11 @@ public class TiendaNegocio {
      */
     public float precioTotalCuidadoPersonal() {
         float resultado = 0f;
-        if (tienda.getProductosCuidado().isEmpty()) {
+        if (tienda.getPCuidadoMap().isEmpty()) {
             return resultado;
         }
-
-        float suma = 0;
-        for (Producto cuidadoPersonal : tienda.getProductosCuidado()) {
-            suma += cuidadoPersonal.getPrecio();
+        for (Producto cuidadoPersonal : tienda.getPCuidadoMap().values()) {
+            resultado += cuidadoPersonal.getPrecio();
         }
         return resultado;
     }
@@ -266,12 +268,10 @@ public class TiendaNegocio {
         if (tienda.getAlimentos().isEmpty()) {
             return resultado;
         }
-
-        float suma = 0;
         for (Producto alimento : tienda.getAlimentos()) {
             Alimento alimentoAux = (Alimento) alimento;
             if (!alimentoAux.verificarCaducidad()) {
-                suma += (alimento.precioMaximo() - alimento.getPrecio());
+                resultado += (alimento.precioMaximo() - alimento.getPrecio());
             }
         }
         return resultado;
@@ -286,10 +286,8 @@ public class TiendaNegocio {
         if (tienda.getAparatos().isEmpty()) {
             return resultado;
         }
-
-        float suma = 0;
         for (Producto aparato : tienda.getAparatos()) {
-            suma += (aparato.precioMaximo() - aparato.getPrecio());
+            resultado += (aparato.precioMaximo() - aparato.getPrecio());
         }
         return resultado;
     }
@@ -300,13 +298,11 @@ public class TiendaNegocio {
      */
     public float gananciaTotalSouvenirs() {
         float resultado = 0f;
-        if (tienda.getSouvenirMap().isEmpty()) {
+        if (tienda.getSouvenirs().isEmpty()) {
             return resultado;
         }
-
-        float suma = 0;
-        for (Producto souvenir : tienda.getSouvenirMap().values()) {
-            suma += (souvenir.precioMaximo() - souvenir.getPrecio());
+        for (Producto souvenir : tienda.getSouvenirs()) {
+            resultado += (souvenir.precioMaximo() - souvenir.getPrecio());
         }
         return resultado;
     }
@@ -317,13 +313,11 @@ public class TiendaNegocio {
      */
     public float gananciaTotalCuidadoPersonal() {
         float resultado = 0f;
-        if (tienda.getProductosCuidado().isEmpty()) {
+        if (tienda.getPCuidadoMap().isEmpty()) {
             return resultado;
         }
-
-        float suma = 0;
-        for (Producto cuidadoPersonal : tienda.getProductosCuidado()) {
-            suma += (cuidadoPersonal.precioMaximo() - cuidadoPersonal.getPrecio());
+        for (Producto cuidadoPersonal : tienda.getPCuidadoMap().values()) {
+            resultado += (cuidadoPersonal.precioMaximo() - cuidadoPersonal.getPrecio());
         }
         return resultado;
     }
@@ -344,8 +338,8 @@ public class TiendaNegocio {
     public String mostrarCantidades() {
         return "Alimentos: " + tienda.getAlimentos().size() +
                 "\nAparatos: " + tienda.getAparatos().size() +
-                "\nSouvenirs: " + tienda.getSouvenirMap().size() +
-                "\nProductos de cuidado personal: " + tienda.getProductosCuidado().size();
+                "\nSouvenirs: " + tienda.getSouvenirs().size() +
+                "\nProductos de cuidado personal: " + tienda.getPCuidadoMap().size();
     }
 
     /**
@@ -354,17 +348,28 @@ public class TiendaNegocio {
      */
     public String mostrarRecomendados() {
         String resultado = "";
-        if (tienda.getProductosCuidado().isEmpty()) {
+        if (tienda.getPCuidadoMap().isEmpty()) {
             return resultado;
         }
 
         resultado = "Los productos recomendados son:";
-        for (Producto cuidadoPersonal : tienda.getProductosCuidado()) {
+        for (Producto cuidadoPersonal : tienda.getPCuidadoMap().values()) {
             CuidadoPersonal cPersonalAux = (CuidadoPersonal) cuidadoPersonal;
             if (cPersonalAux.recomendarProducto()) {
                 resultado += "\n" + cuidadoPersonal;
             }
         }
         return resultado;
+    }
+
+    public List<Producto> obtenerProductos() {
+        List<Producto> productos = new ArrayList<>();
+        productos.addAll(fileCsv.obtenerAlimentos());
+        productos.addAll(fileCsv.obtenerAparatos());
+        productos.addAll(fileCsv.obtenerSouvenirs());
+        productos.addAll(fileCsv.obtenerCuidados().values());
+
+
+        return productos;
     }
 }
