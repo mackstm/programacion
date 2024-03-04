@@ -5,6 +5,7 @@ import es.ies.puerto.utilities.UtilitiesClass;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,5 +38,46 @@ public class FileCsv extends UtilitiesClass {
             System.out.println("File does not exist");
         }
         return people;
+    }
+
+    public Person obtainPerson(Person person) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line;
+            int counter = 0;
+            boolean found = false;
+            while ((line = br.readLine()) != null && !found) {
+                if (counter > 0) {
+                    String[] data = line.split(DELIMIT);
+                    int id = Integer.parseInt(data[0]);
+                    if (id == person.getId()) {
+                        String name = data[1];
+                        int age = Integer.parseInt(data[2]);
+                        String email = data[3];
+                        person.setName(name);
+                        person.setAge(age);
+                        person.setEmail(email);
+
+                        found = true;
+                    }
+
+                }
+                counter++;
+            }
+        } catch (IOException e) {
+            System.out.println("File does not exist");
+        }
+        return person;
+    }
+
+    public void addPerson(Person person) {
+        Person personSearch = new Person(person.getId());
+        personSearch = obtainPerson(personSearch);
+        if (personSearch.getEmail() == null) {
+            try (FileWriter writer = new FileWriter(path, true)) {
+                writer.write(person.toCsv() + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
