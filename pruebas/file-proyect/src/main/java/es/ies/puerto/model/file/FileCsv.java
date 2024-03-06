@@ -76,8 +76,23 @@ public class FileCsv extends UtilitiesClass {
             try (FileWriter writer = new FileWriter(path, true)) {
                 writer.write(person.toCsv() + "\n");
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("File does not exist");
             }
+        }
+    }
+
+    public void deletePerson(int id) {
+        List<Person> people = obtainPeople();
+        try (FileWriter writer = new FileWriter(path)) {
+            writer.write("id,nombre,edad,email\n");
+            for (Person person : people) {
+                if (person.getId() != id) {
+                    writer.write(person.getId() + DELIMIT + person.getName() + DELIMIT +
+                            person.getAge() + DELIMIT + person.getEmail() + "\n");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("File does not exist");
         }
     }
 }
