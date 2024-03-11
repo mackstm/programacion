@@ -1,0 +1,6 @@
+<person>
+   <id>1</id>
+   <nombre>name</nombre>
+   <edad>12</edad>
+   <email>test@test.com</email>
+</person>

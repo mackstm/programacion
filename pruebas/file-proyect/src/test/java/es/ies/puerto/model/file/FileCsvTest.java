@@ -19,9 +19,6 @@ public class FileCsvTest {
         people = fileCsv.obtainPeople();
     }
 
-    @AfterEach
-
-
     @Test
     public void obtainPeopleTest() {
         Assertions.assertFalse(people.isEmpty(), "Unexpected result");
@@ -54,7 +51,8 @@ public class FileCsvTest {
     @Test
     public void deletePersonTest() {
         int numPeople = people.size();
-        fileCsv.deletePerson(5);
+        Person perdonDelete = new Person(5);
+        fileCsv.deletePerson(perdonDelete);
         people = fileCsv.obtainPeople();
         int numPeopleDelete = people.size();
         Person personObtain = new Person(5);

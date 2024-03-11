@@ -1,7 +1,9 @@
 package es.ies.puerto.model.file;
 
 import es.ies.puerto.model.Person;
+import es.ies.puerto.model.file.interfaces.ICrudOperations;
 import es.ies.puerto.utilities.UtilitiesClass;
+import org.simpleframework.xml.Element;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,11 +16,13 @@ import java.util.List;
  * Class that works with .csv files
  * @author Jose Maximiliano Boada Martin
  */
-public class FileCsv extends UtilitiesClass {
+public class FileCsv extends UtilitiesClass implements ICrudOperations {
+    @Element(name = "people")
+    List<Person> people;
     String path = "src/main/resources/data.csv";
 
     public List<Person> obtainPeople() {
-        List<Person> people = new ArrayList<>();
+        people = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             int counter = 0;
@@ -81,14 +85,28 @@ public class FileCsv extends UtilitiesClass {
         }
     }
 
-    public void deletePerson(int id) {
-        List<Person> people = obtainPeople();
+    public void deletePerson(Person person) {
+        people = obtainPeople();
         try (FileWriter writer = new FileWriter(path)) {
             writer.write("id,nombre,edad,email\n");
-            for (Person person : people) {
-                if (person.getId() != id) {
-                    writer.write(person.getId() + DELIMIT + person.getName() + DELIMIT +
-                            person.getAge() + DELIMIT + person.getEmail() + "\n");
+            for (Person element : people) {
+                if (!element.equals(person)) {
+                    writer.write(element.toCsv() + "\n");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("File does not exist");
+        }
+    }
+
+    public void updatePerson(Person person) {
+        people = obtainPeople();
+        try (FileWriter writer = new FileWriter(path)) {
+            for (Person element : people) {
+                if (element.equals(person)) {
+                    writer.write(person.toCsv() + "\n");
+                } else {
+                    writer.write(element.toCsv() + "\n");
                 }
             }
         } catch (IOException e) {

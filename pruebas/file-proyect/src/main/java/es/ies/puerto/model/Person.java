@@ -1,18 +1,26 @@
 package es.ies.puerto.model;
 
 import es.ies.puerto.utilities.UtilitiesClass;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
 /**
  * Person class
  * @author Jose Maximiliano Boada Martin
  */
+
+@Root(name = "person")
 public class Person extends UtilitiesClass {
     /**
      * Properties
      */
+    @Element(name = "id")
     int id;
+    @Element(name = "nombre")
     String name;
+    @Element(name = "edad")
     int age;
+    @Element(name = "email")
     String email;
 
     /**
