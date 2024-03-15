@@ -15,17 +15,21 @@ public class Hechicero {
         repeticiones.put('o', 0);
         repeticiones.put('u', 0);
 
-        int max = 0;
+
         for (int i = 0; i < texto.length(); i++) {
+            //pene
             if (repeticiones.containsKey(texto.charAt(i))) {
                 repeticiones.replace(texto.charAt(i), repeticiones.get(texto.charAt(i)) + 1);
-                if (max <= repeticiones.get(texto.charAt(i))) {
-                    max = repeticiones.get(texto.charAt(i));
-                }
             }
         }
 
-        vocal = repeticiones
+        int max = 0;
+        for (Character letra : repeticiones.keySet()) {
+            if (max < repeticiones.get(letra)) {
+                max = repeticiones.get(letra);
+                vocal = letra;
+            }
+        }
         return vocal;
     }
 }
