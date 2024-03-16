@@ -4,6 +4,10 @@ import es.ies.puerto.modelo.Personaje;
 
 import java.util.List;
 
+/**
+ * Operaciones CRUD para personajes de marvel
+ * @author Jose Maximiliano Boada Martin
+ */
 public interface ICrudOperaciones {
     public List<Personaje> obtenerPersonajes();
     public Personaje obtenerPersonaje(Personaje personaje);

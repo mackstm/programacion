@@ -114,6 +114,10 @@ public class Personaje extends UtilidadesClass {
                 '}';
     }
 
+    /**
+     * Metodo para pasar datos a formato csv
+     * @return datos en formato csv
+     */
     public String toCsv() {
         String resultado = nombre + DELIMITADOR + alias + DELIMITADOR + genero + DELIMITADOR + "\"";
         for (String poder : poderes) {

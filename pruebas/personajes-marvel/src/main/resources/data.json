@@ -7,16 +7,17 @@
       "Vuelo",
       "Armadura tecnológica avanzada",
       "Rayos láser"
-    ]
+    ],
+    "DELIMITADOR": ","
   },
   {
-    "nombre": "Spider-Man",
+    "nombre": "nombre",
     "alias": "Peter Parker",
-    "genero": "Masculino",
+    "genero": "genero",
     "poderes": [
-      "Agilidad sobrehumana",
-      "Trepamuros",
-      "Sentido arácnido"
-    ]
+      "poder1",
+      "poder2"
+    ],
+    "DELIMITADOR": ","
   }
 ]

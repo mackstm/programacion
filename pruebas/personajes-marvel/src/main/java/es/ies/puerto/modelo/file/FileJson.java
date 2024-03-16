@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import es.ies.puerto.modelo.Personaje;
+import es.ies.puerto.modelo.file.abstracts.FileAbstract;
 import es.ies.puerto.modelo.interfaces.ICrudOperaciones;
 
 import java.io.FileWriter;
@@ -14,66 +15,96 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileJson implements ICrudOperaciones {
-    List<Personaje> personajes;
-    String path="src/main/resources/data.json";
+/**
+ * Clase que trabaja con datos en fichero json
+ * @author Jose Maximiliano Boada Martin
+ */
+public class FileJson extends FileAbstract {
 
+    /**
+     * Constructor por defecto
+     */
     public FileJson() {
-        personajes = new ArrayList<>();
+        super("src/main/resources/data.json");
     }
 
+    /**
+     * Obtiene lista de personajes en fichero
+     * @return personajes
+     */
     @Override
-    public List<Personaje> obtenerPersonas() {
+    public List<Personaje> obtenerPersonajes() {
         String json = null;
         try {
-            json = new String(Files.readAllBytes(Paths.get(path)));
+            json = new String(Files.readAllBytes(Paths.get(getPath())));
             Type listType = new TypeToken<ArrayList<Personaje>>(){}.getType();
-            personajes = new Gson().fromJson(json, listType);
+            getPersonajeList().setPersonajes(new Gson().fromJson(json, listType));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return personajes;
+        return getPersonajeList().getPersonajes();
     }
 
+    /**
+     * Obtiene un personaje del fichero
+     * @param personaje a obtener
+     * @return personaje obtenido
+     */
     @Override
-    public Personaje obtenerPersona(Personaje personaje) {
-        if (!personajes.contains(personaje)) {
+    public Personaje obtenerPersonaje(Personaje personaje) {
+        if (!getPersonajeList().getPersonajes().contains(personaje)) {
             return null;
         }
-        int posicion = personajes.indexOf(personaje);
-        return personajes.get(posicion);
+        int posicion = getPersonajeList().getPersonajes().indexOf(personaje);
+        return getPersonajeList().getPersonajes().get(posicion);
     }
 
+    /**
+     * Agrega un personaje al fichero
+     * @param personaje a agregar
+     */
     @Override
-    public void addPersona(Personaje personaje) {
-        if (personajes.contains(personaje)) {
+    public void addPersonaje(Personaje personaje) {
+        if (getPersonajeList().getPersonajes().contains(personaje)) {
             return;
         }
-        personajes.add(personaje);
-        guardarDatos(personajes);
+        getPersonajeList().getPersonajes().add(personaje);
+        guardarDatos(getPersonajeList().getPersonajes());
     }
 
+    /**
+     * Elimina un personaje del fichero
+     * @param personaje a eliminar
+     */
     @Override
-    public void deletePersona(Personaje personaje) {
-        if (!personajes.contains(personaje)) {
+    public void deletePersonaje(Personaje personaje) {
+        if (!getPersonajeList().getPersonajes().contains(personaje)) {
             return;
         }
-        personajes.remove(personaje);
-        guardarDatos(personajes);
+        getPersonajeList().getPersonajes().remove(personaje);
+        guardarDatos(getPersonajeList().getPersonajes());
     }
 
+    /**
+     * Modifica un personaje del fichero
+     * @param personaje a modificar
+     */
     @Override
-    public void updatePersona(Personaje personaje) {
-        if (!personajes.contains(personaje)) {
+    public void updatePersonaje(Personaje personaje) {
+        if (!getPersonajeList().getPersonajes().contains(personaje)) {
             return;
         }
-        int posicion = personajes.indexOf(personaje);
-        personajes.set(posicion, personaje);
-        guardarDatos(personajes);
+        int posicion = getPersonajeList().getPersonajes().indexOf(personaje);
+        getPersonajeList().getPersonajes().set(posicion, personaje);
+        guardarDatos(getPersonajeList().getPersonajes());
     }
 
+    /**
+     * Se utiliza en los metodos de escritura
+     * @param personajes a escribir
+     */
     private void guardarDatos(List<Personaje> personajes) {
-        try (FileWriter writer = new FileWriter(path)) {
+        try (FileWriter writer = new FileWriter(getPath())) {
             new GsonBuilder().setPrettyPrinting().create().toJson(personajes, writer);
         } catch (IOException e) {
             System.err.println("Error al guardar datos: " + e.getMessage());

@@ -1,28 +1,50 @@
 package es.ies.puerto.modelo.file;
 
 import es.ies.puerto.modelo.Personaje;
-import es.ies.puerto.modelo.interfaces.ICrudOperaciones;
-import es.ies.puerto.utilidades.UtilidadesClass;
+import es.ies.puerto.modelo.file.abstracts.FileAbstract;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileCsv extends UtilidadesClass implements ICrudOperaciones {
-    String path="src/main/resources/data.csv";
+/**
+ * Clase que trabaja con datos en fichero csv
+ * @author Jose Maximiliano Boada Martin
+ */
+public class FileCsv extends FileAbstract {
 
-    public List<Personaje> obtenerPersonas() {
+    /**
+     * Constructor por defecto
+     */
+    public FileCsv() {
+        super("src/main/resources/data.csv");
+    }
+
+    /**
+     * Obtiene lista de personajes en fichero
+     * @return personajes
+     */
+    @Override
+    public List<Personaje> obtenerPersonajes() {
         List<Personaje> personajes = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(getPath()))) {
             String linea;
+            int counter = 0;
             while ((linea = br.readLine()) != null) {
-                String[] datos = linea.split(DELIMITADOR);
-                int id = Integer.parseInt(datos[0]);
-                String nombre = datos[1];
-                int edad = Integer.parseInt(datos[2]);
-                String email = datos[3];
-                Personaje personaje = new Personaje(id, nombre, edad, email);
-                personajes.add(personaje);
+                if (counter > 0) {
+                    String[] datos = linea.split(DELIMITADOR);
+                    String nombre = datos[0];
+                    String alias = datos[1];
+                    String genero = datos[2];
+                    List<String> poderes = new ArrayList<>();
+                    for (int i = 3; i < datos.length; i++) {
+                        datos[i] = datos[i].replaceAll("[\",]", "");
+                        poderes.add(datos[i]);
+                    }
+                    Personaje personaje = new Personaje(nombre, alias, genero, poderes);
+                    personajes.add(personaje);
+                }
+                counter++;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,20 +53,30 @@ public class FileCsv extends UtilidadesClass implements ICrudOperaciones {
 
     }
 
-    public Personaje obtenerPersona(Personaje personaje) {
+    /**
+     * Obtiene un personaje del fichero
+     * @param personaje a obtener
+     * @return personaje obtenido
+     */
+    @Override
+    public Personaje obtenerPersonaje(Personaje personaje) {
         boolean encontrado = false;
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(getPath()))) {
             String linea;
             while (((linea = br.readLine()) != null) && !encontrado) {
                 String[] datos = linea.split(DELIMITADOR);
-                int id = Integer.parseInt(datos[0]);
-                if (id == personaje.getId()) {
-                    String nombre = datos[1];
-                    int edad = Integer.parseInt(datos[2]);
-                    String email = datos[3];
+                String alias = datos[1];
+                if (alias.equals(personaje.getAlias())) {
+                    String nombre = datos[0];
+                    String genero = datos[2];
+                    List<String> poderes = new ArrayList<>();
+                    for (int i = 3; i < datos.length; i++) {
+                        datos[i] = datos[i].replaceAll("[\",]", "");
+                        poderes.add(datos[i]);
+                    }
                     personaje.setNombre(nombre);
-                    personaje.setEdad(edad);
-                    personaje.setEmail(email);
+                    personaje.setGenero(genero);
+                    personaje.setPoderes(poderes);
                     encontrado = true;
                 }
             }
@@ -54,11 +86,16 @@ public class FileCsv extends UtilidadesClass implements ICrudOperaciones {
         return personaje;
     }
 
-    public void addPersona(Personaje personaje) {
-        Personaje personajeBuscar = new Personaje(personaje.getId());
-        personajeBuscar = obtenerPersona(personajeBuscar);
-        if (personajeBuscar.getEmail() == null) {
-            try (FileWriter writer = new FileWriter(path, true)) {
+    /**
+     * Agrega un personaje al fichero
+     * @param personaje a agregar
+     */
+    @Override
+    public void addPersonaje(Personaje personaje) {
+        Personaje personajeBuscar = new Personaje(personaje.getAlias());
+        personajeBuscar = obtenerPersonaje(personajeBuscar);
+        if (personajeBuscar.getNombre() == null) {
+            try (FileWriter writer = new FileWriter(getPath(), true)) {
                 writer.write(personaje.toCsv()+ "\n");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -66,11 +103,17 @@ public class FileCsv extends UtilidadesClass implements ICrudOperaciones {
         }
     }
 
-    public void deletePersona(Personaje personaje) {
-        Personaje personajeBuscar = new Personaje(personaje.getId());
-        List<Personaje> personajes = obtenerPersonas();
+    /**
+     * Elimina un personaje del fichero
+     * @param personaje a eliminar
+     */
+    @Override
+    public void deletePersonaje(Personaje personaje) {
+        Personaje personajeBuscar = new Personaje(personaje.getAlias());
+        List<Personaje> personajes = obtenerPersonajes();
         personajes.remove(personaje);
-        try (FileWriter writer = new FileWriter(path)) {
+        try (FileWriter writer = new FileWriter(getPath())) {
+            writer.write("nombre,alias,genero,poderes\n");
             for (Personaje personajeFile : personajes) {
                 writer.write(personajeFile.toCsv() + "\n");
             }
@@ -79,9 +122,15 @@ public class FileCsv extends UtilidadesClass implements ICrudOperaciones {
         }
     }
 
-    public void updatePersona(Personaje personaje) {
-        List<Personaje> personajes = obtenerPersonas();
-        try (FileWriter writer = new FileWriter(path)) {
+    /**
+     * Modifica un personaje del fichero
+     * @param personaje a modificar
+     */
+    @Override
+    public void updatePersonaje(Personaje personaje) {
+        List<Personaje> personajes = obtenerPersonajes();
+        try (FileWriter writer = new FileWriter(getPath())) {
+            writer.write("nombre,alias,genero,poderes\n");
             for (Personaje personasFile : personajes) {
                 if (personasFile.equals(personaje)) {
                     writer.write(personaje.toCsv() + "\n");
