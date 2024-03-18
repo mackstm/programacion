@@ -23,7 +23,7 @@ public class Personaje extends UtilidadesClass {
     private String alias;
     @Element(name = "genero")
     private String genero;
-    @ElementList(name = "poderes")
+    @ElementList(name = "poderes", entry = "poder")
     private List<String> poderes;
 
     /**

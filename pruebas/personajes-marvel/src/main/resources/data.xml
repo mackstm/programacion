@@ -4,9 +4,9 @@
       <alias>Tony Stark</alias>
       <genero>Masculino</genero>
       <poderes class="java.util.ArrayList">
-         <string>Vuelo</string>
-         <string>Armadura tecnológica avanzada</string>
-         <string>Rayos láser</string>
+         <poder>Vuelo</poder>
+         <poder>Armadura tecnológica avanzada</poder>
+         <poder>Rayos láser</poder>
       </poderes>
    </personaje>
    <personaje>
@@ -14,8 +14,8 @@
       <alias>Peter Parker</alias>
       <genero>genero</genero>
       <poderes class="java.util.ArrayList">
-         <string>poder1</string>
-         <string>poder2</string>
+         <poder>poder1</poder>
+         <poder>poder2</poder>
       </poderes>
    </personaje>
 </personajes>

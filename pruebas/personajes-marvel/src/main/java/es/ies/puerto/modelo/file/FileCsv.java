@@ -38,7 +38,7 @@ public class FileCsv extends FileAbstract {
                     String genero = datos[2];
                     List<String> poderes = new ArrayList<>();
                     for (int i = 3; i < datos.length; i++) {
-                        datos[i] = datos[i].replaceAll("[\",]", "");
+                        datos[i] = datos[i].replaceAll("\"", "").trim();
                         poderes.add(datos[i]);
                     }
                     Personaje personaje = new Personaje(nombre, alias, genero, poderes);
@@ -71,7 +71,7 @@ public class FileCsv extends FileAbstract {
                     String genero = datos[2];
                     List<String> poderes = new ArrayList<>();
                     for (int i = 3; i < datos.length; i++) {
-                        datos[i] = datos[i].replaceAll("[\",]", "");
+                        datos[i] = datos[i].replaceAll("\"", "").trim();
                         poderes.add(datos[i]);
                     }
                     personaje.setNombre(nombre);
