@@ -12,10 +12,11 @@ public class OperacionesBdTest {
     OperacionesDb operacionesDb;
     String urlBd = "src/main/resources/usuarios.db";
     String MESSAGE_ERROR = "Resultado inesperado";
-
+    Usuario usuario;
     @BeforeEach
     public void beforeEach() {
         operacionesDb = new OperacionesDb(urlBd);
+        usuario = new Usuario("11", "pepe", 20, "DAMcity");
     }
 
     @Test
@@ -44,11 +45,34 @@ public class OperacionesBdTest {
 
     @Test
     public void insertarUsuarioTest() {
-        Usuario usuario = new Usuario("11", "pepe", 20, "DAMcity");
+
         try {
+            int numeroUsuarios = operacionesDb.obtenerUsuarios().size();
             operacionesDb.insertarUsuario(usuario);
             Usuario usuarioObtenido = operacionesDb.obtenerUsuario(usuario);
             Assertions.assertEquals(usuario, usuarioObtenido, MESSAGE_ERROR);
+            operacionesDb.eliminarUsuario(usuarioObtenido);
+            int numeroUsuariosFinal = operacionesDb.obtenerUsuarios().size();
+            Assertions.assertEquals(numeroUsuariosFinal, numeroUsuarios, MESSAGE_ERROR);
+        } catch (UsuarioException e) {
+            Assertions.fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void actualizarUsuarioTest() {
+        String nombreUpdate = "Pepe Juan";
+        int edadUpdate = 22;
+        String ciudadUpdate = "Miami";
+        try {
+            operacionesDb.insertarUsuario(usuario);
+            usuario.setCiudad(ciudadUpdate);
+            usuario.setEdad(edadUpdate);
+            usuario.setNombre(nombreUpdate);
+            operacionesDb.actualizarUsuario(usuario);
+            Usuario usuarioEncontrado = operacionesDb.obtenerUsuario(usuario);
+            Assertions.assertEquals(usuario, usuarioEncontrado, MESSAGE_ERROR);
+            operacionesDb.eliminarUsuario(usuarioEncontrado);
         } catch (UsuarioException e) {
             Assertions.fail(e.getMessage());
         }

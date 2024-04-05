@@ -100,11 +100,18 @@ public class OperacionesDb extends Conexion {
         actualizar(query);
     }
 
-    public void eliminarUsuario(Usuario usuario) {
-
+    public void eliminarUsuario(Usuario usuario) throws UsuarioException {
+        String query = "DELETE FROM usuarios AS u" +
+                " WHERE u.id = " + usuario.getId();
+        actualizar(query);
     }
 
-    public void actualizarUsuario(Usuario usuario) {
-
+    public void actualizarUsuario(Usuario usuario) throws UsuarioException {
+        String query = "UPDATE usuarios" +
+                " SET nombre = '" + usuario.getNombre() +
+                "', edad = " + usuario.getEdad() +
+                ", ciudad = '" + usuario.getCiudad() + "'" +
+                " WHERE id = " + usuario.getId();
+        actualizar(query);
     }
 }
