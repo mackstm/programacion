@@ -3,7 +3,7 @@ package es.ies.puerto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class Ejercicio6 {
+public class Ejercicio6Test {
     Ejercicio6 ejercicio;
 
     @BeforeEach
