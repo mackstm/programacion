@@ -1,5 +1,5 @@
 package es.ies.puerto.utilities;
 
-public class TestUtilities {
+public abstract class TestUtilities {
     public static final String ERR_MSG = "Unexpected result";
 }
