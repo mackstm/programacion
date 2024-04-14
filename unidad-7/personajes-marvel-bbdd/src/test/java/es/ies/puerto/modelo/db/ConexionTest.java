@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class ConexionTest {
     Conexion conexion;
-    String url = "src/main/resources/usuarios.db";
+    String url = "src/main/resources/marvel.db";
 
     @BeforeEach
     public void beforeEach() {

@@ -1,30 +1,50 @@
 package es.ies.puerto.modelo.db;
 
-import es.ies.puerto.config.AppConfig;
 import es.ies.puerto.exception.UsuarioException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Conexion extends AppConfig {
+/**
+ * Maneja las conexiones a base de datos
+ * @author Jose Maximiliano Boada Martin
+ */
+public class Conexion {
+    /**
+     * Propiedades
+     */
     private Connection con;
 
     private String url;
     private String user;
     private String password;
 
+    /**
+     * Constructor con url de bd
+     * @param url
+     * @throws UsuarioException
+     */
     public Conexion(String url) throws UsuarioException {
-        super();
         this.url = "jdbc:sqlite:"+url;
     }
 
-    public Conexion(String url, String user, String password) throws UsuarioException {
-        super();
+    /**
+     * Constructor con url, nombre de usuario y password
+     * @param url
+     * @param user
+     * @param password
+     */
+    public Conexion(String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
     }
 
+    /**
+     * Establece conexion
+     * @return
+     * @throws UsuarioException
+     */
     public Connection getConexion() throws UsuarioException {
         try {
             this.con = DriverManager.getConnection(url);
