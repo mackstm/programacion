@@ -20,7 +20,7 @@ public class Poder {
 
     /**
      * Constructor para busquedas
-     * @param poderId
+     * @param poderId -
      */
     public Poder(int poderId) {
         this.poderId = poderId;
@@ -28,8 +28,8 @@ public class Poder {
 
     /**
      * Constructor completo
-     * @param poderId
-     * @param poder
+     * @param poderId -
+     * @param poder -
      */
     public Poder(int poderId, String poder) {
         this.poderId = poderId;

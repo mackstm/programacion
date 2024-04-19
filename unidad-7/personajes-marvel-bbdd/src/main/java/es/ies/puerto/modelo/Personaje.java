@@ -14,7 +14,6 @@ public class Personaje {
      */
     private int personajeId;
     private String nombre;
-    private String alias;
     private String genero;
     private Set<Poder> poderes;
 
@@ -25,7 +24,7 @@ public class Personaje {
 
     /**
      * Constructor para busquedas
-     * @param personajeId
+     * @param personajeId -
      */
     public Personaje(int personajeId) {
         this.personajeId = personajeId;
@@ -34,16 +33,14 @@ public class Personaje {
 
     /**
      * Constructor completo
-     * @param personajeId
-     * @param nombre
-     * @param alias
-     * @param genero
-     * @param poderes
+     * @param personajeId -
+     * @param nombre -
+     * @param genero -
+     * @param poderes -
      */
-    public Personaje(int personajeId, String nombre, String alias, String genero, Set<Poder> poderes) {
+    public Personaje(int personajeId, String nombre, String genero, Set<Poder> poderes) {
         this.personajeId = personajeId;
         this.nombre = nombre;
-        this.alias = alias;
         this.genero = genero;
         this.poderes = poderes;
     }
@@ -61,14 +58,6 @@ public class Personaje {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
     }
 
     public String getGenero() {
@@ -105,7 +94,6 @@ public class Personaje {
         return "Personaje{" +
                 "id=" + personajeId +
                 ", nombre='" + nombre + '\'' +
-                ", alias='" + alias + '\'' +
                 ", genero='" + genero + '\'' +
                 ", poderes=" + poderes +
                 '}';
