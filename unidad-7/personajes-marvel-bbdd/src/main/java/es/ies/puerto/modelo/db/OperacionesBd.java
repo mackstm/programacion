@@ -18,8 +18,8 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Constructor para crear la conexion
-     * @param url
-     * @throws UsuarioException
+     * @param url -
+     * @throws UsuarioException -
      */
     public OperacionesBd(String url) throws UsuarioException {
         super(url);
@@ -27,8 +27,8 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Para escritura
-     * @param query
-     * @throws UsuarioException
+     * @param query -
+     * @throws UsuarioException -
      */
     private void actualizar(String query) throws UsuarioException {
         Statement statement = null;
@@ -53,9 +53,9 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Para lectura
-     * @param query
-     * @return
-     * @throws UsuarioException
+     * @param query -
+     * @return -
+     * @throws UsuarioException -
      */
     private Set<Personaje> obtener(String query) throws UsuarioException {
         Set<Personaje> personajes = new HashSet<>();
@@ -67,12 +67,11 @@ public class OperacionesBd extends Conexion{
             while (rs.next()) {
                 int personajeId = rs.getInt("personajeId");
                 String personajeNombre = rs.getString("nombre");
-                String personajeAlias = rs.getString("alias");
                 String personajeGenero = rs.getString("genero");
                 int poderId = rs.getInt("poderId");
                 String poderStr = rs.getString("poder");
                 Poder poder = new Poder(poderId, poderStr);
-                Personaje personaje = new Personaje(personajeId, personajeNombre, personajeAlias,
+                Personaje personaje = new Personaje(personajeId, personajeNombre,
                         personajeGenero, new HashSet<>());
                 personajes.add(personaje);
                 personajes.iterator().next().getPoderes().add(poder);
@@ -100,11 +99,11 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Obtiene los personajes de la bd
-     * @return
-     * @throws UsuarioException
+     * @return -
+     * @throws UsuarioException -
      */
     public Set<Personaje> obtenerPersonajes() throws UsuarioException {
-        String query = "SELECT p.personajeId, p.nombre, p.alias, p.genero, po.poderId, po.poder " +
+        String query = "SELECT p.personajeId, p.nombre, p.genero, po.poderId, po.poder " +
                 "FROM Personaje AS p " +
                 "JOIN PersonajePoder AS pp ON p.personajeId = pp.personajeId " +
                 "JOIN Poder AS po ON po.poderId = pp.poderId";
@@ -113,12 +112,12 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Obtiene un personaje de la bd
-     * @param personaje
-     * @return
-     * @throws UsuarioException
+     * @param personaje -
+     * @return -
+     * @throws UsuarioException -
      */
     public Personaje obtenerPersonaje(Personaje personaje) throws UsuarioException {
-        String query = "SELECT p.personajeId, p.nombre, p.alias, p.genero, po.poderId, po.poder " +
+        String query = "SELECT p.personajeId, p.nombre, p.genero, po.poderId, po.poder " +
                 "FROM Personaje AS p " +
                 "JOIN PersonajePoder AS pp ON p.personajeId = pp.personajeId " +
                 "JOIN Poder AS po ON po.poderId = pp.poderId " +
@@ -132,14 +131,13 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Inserta un personaje en la bd
-     * @param personaje
-     * @throws UsuarioException
+     * @param personaje -
+     * @throws UsuarioException -
      */
     public void insertarPersonaje(Personaje personaje) throws UsuarioException {
         String query = "INSERT INTO Personaje VALUES " +
                 "(" + personaje.getPersonajeId() + ", " +
                 "'" + personaje.getNombre() + "'" + ", " +
-                "'" + personaje.getAlias() + "'" + ", " +
                 "'" + personaje.getGenero() + "'" + ");";
         for (Poder poder : personaje.getPoderes()) {
             query += "INSERT INTO PersonajePoder VALUES " +
@@ -150,13 +148,12 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Actualiza personaje existente en la bd
-     * @param personaje
-     * @throws UsuarioException
+     * @param personaje -
+     * @throws UsuarioException -
      */
     public void actualizarPersonaje(Personaje personaje) throws UsuarioException{
         String query = "UPDATE Personaje " +
                 "SET nombre = '" + personaje.getNombre() + "', " +
-                "alias = '" + personaje.getAlias() + "', " +
                 "genero = '" + personaje.getGenero() + "' " +
                 "WHERE personajeId = " + personaje.getPersonajeId() + ";" +
                 "DELETE FROM PersonajePoder WHERE personajeId = " + personaje.getPersonajeId() + ";";
@@ -169,8 +166,8 @@ public class OperacionesBd extends Conexion{
 
     /**
      * Elimina un personaje de la bd
-     * @param personaje
-     * @throws UsuarioException
+     * @param personaje -
+     * @throws UsuarioException -
      */
     public void eliminarPersonaje(Personaje personaje) throws UsuarioException{
         String query = "DELETE FROM Personaje AS p WHERE p.personajeId = " + personaje.getPersonajeId() + "; " +

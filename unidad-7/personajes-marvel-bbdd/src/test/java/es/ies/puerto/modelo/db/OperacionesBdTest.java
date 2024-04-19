@@ -25,7 +25,8 @@ public class OperacionesBdTest {
             poder1 = new Poder(1);
             poder2 = new Poder(2);
             poderes = new HashSet<>(Arrays.asList(poder1, poder2));
-            personaje = new Personaje(3, "bartolo", "pepe", "H", poderes);
+            personaje = new Personaje(3, "bartolo", "H", poderes);
+            //Hacer algo con el alias
             operacionesBd = new OperacionesBd(urlBd);
         }catch (Exception exception) {
             Assertions.fail(exception.getMessage());
@@ -49,7 +50,7 @@ public class OperacionesBdTest {
             personaje = operacionesBd.obtenerPersonaje(personaje);
             Assertions.assertNotNull(personaje, ERR_MSG);
             Assertions.assertNotNull(personaje.getNombre(), ERR_MSG);
-            Assertions.assertNotNull(personaje.getAlias(), ERR_MSG);
+            //Assertions.assertNotNull(personaje.getAlias(), ERR_MSG);
             Assertions.assertNotNull(personaje.getGenero(), ERR_MSG);
             Assertions.assertNotNull(personaje.getPoderes(), ERR_MSG);
             Assertions.assertEquals(3, personaje.getPoderes().size(), ERR_MSG);
@@ -85,14 +86,14 @@ public class OperacionesBdTest {
         try {
             operacionesBd.insertarPersonaje(personaje);
             personaje.setNombre(nombreUpdate);
-            personaje.setAlias(aliasUpdate);
+            //personaje.setAlias(aliasUpdate);
             personaje.setGenero(generoUpdate);
             personaje.setPoderes(poderesUpdate);
             operacionesBd.actualizarPersonaje(personaje);
             Personaje personajeEncontrado = operacionesBd.obtenerPersonaje(personaje);
             Assertions.assertEquals(personaje, personajeEncontrado, ERR_MSG);
             Assertions.assertEquals(personaje.getNombre(), personajeEncontrado.getNombre(), ERR_MSG);
-            Assertions.assertEquals(personaje.getAlias(), personajeEncontrado.getAlias(), ERR_MSG);
+            //Assertions.assertEquals(personaje.getAlias(), personajeEncontrado.getAlias(), ERR_MSG);
             Assertions.assertEquals(personaje.getGenero(), personajeEncontrado.getGenero(), ERR_MSG);
             Assertions.assertEquals(personaje.getPoderes(), personajeEncontrado.getPoderes(), ERR_MSG);
             operacionesBd.eliminarPersonaje(personajeEncontrado);

@@ -1,5 +1,7 @@
 package es.ies.puerto.modelo;
 
+import java.util.Objects;
+
 /**
  * Alias de superheroe
  * @author Jose Maximiliano Boada Martin
@@ -62,5 +64,27 @@ public class Alias {
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Alias alias = (Alias) o;
+        return aliasId == alias.aliasId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(aliasId);
+    }
+
+    @Override
+    public String toString() {
+        return "Alias{" +
+                "aliasId=" + aliasId +
+                ", personaje=" + personaje +
+                ", alias='" + alias + '\'' +
+                '}';
     }
 }
