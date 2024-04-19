@@ -1,4 +1,4 @@
-package es.ies.puerto.modelo.db;
+package es.ies.puerto.modelo.db.jdbc;
 
 import es.ies.puerto.exception.UsuarioException;
 import es.ies.puerto.modelo.Personaje;

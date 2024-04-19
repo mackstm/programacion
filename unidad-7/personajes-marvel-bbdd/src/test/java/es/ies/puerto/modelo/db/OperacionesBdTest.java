@@ -3,6 +3,7 @@ package es.ies.puerto.modelo.db;
 import es.ies.puerto.exception.UsuarioException;
 import es.ies.puerto.modelo.Personaje;
 import es.ies.puerto.modelo.Poder;
+import es.ies.puerto.modelo.db.jdbc.OperacionesBd;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
