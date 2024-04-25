@@ -15,7 +15,7 @@ public class Alias {
      * Propiedades
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "aliasId", nullable = false)
     private int aliasId;
     @OneToOne

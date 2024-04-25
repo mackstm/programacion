@@ -18,7 +18,7 @@ public class Poder {
      * Propiedades
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "poderId", nullable = false)
     private int poderId;
     @Column(name = "poder")

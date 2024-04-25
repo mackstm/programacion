@@ -20,7 +20,7 @@ public class Personaje {
      * Propiedades
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "personajeId", nullable = false)
     private int personajeId;
     @Column(name = "nombre", nullable = false)
