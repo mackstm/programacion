@@ -1,9 +1,14 @@
 package es.ies.puerto.modelo.db.hibernate;
 
+import es.ies.puerto.modelo.Alias;
 import es.ies.puerto.modelo.Personaje;
+import es.ies.puerto.modelo.Poder;
 import es.ies.puerto.modelo.db.hibernate.abstracts.CrudHibernateAbstract;
 
 import javax.persistence.EntityManagerFactory;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Operaciones sobre base de datos de superheroes usando hibernate
@@ -15,6 +20,8 @@ public class HibernateOps extends CrudHibernateAbstract {
         super(emf);
     }
 
+
+
     @Override
     public Personaje getPersonaje(int personajeId) {
         Personaje personaje = new Personaje(personajeId);
@@ -24,6 +31,11 @@ public class HibernateOps extends CrudHibernateAbstract {
     @Override
     public Personaje getPersonaje(Personaje personaje) {
         return getEm().find(Personaje.class, personaje.getPersonajeId());
+    }
+
+    @Override
+    public List<Personaje> getPersonajes() {
+        return getEm().createQuery("SELECT p FROM " + Personaje.class.getName() + " p").getResultList();
     }
 
     @Override
@@ -66,10 +78,12 @@ public class HibernateOps extends CrudHibernateAbstract {
     @Override
     public void deletePersonaje(Personaje personaje) {
         try {
+            personaje = getPersonaje(personaje);
             getEm().getTransaction().begin();
             getEm().remove(personaje);
             getEm().getTransaction().commit();
         }catch (Exception exception){
+
         }finally {
             if (getEm()!= null && getEm().isOpen()) {
                 getEm().close();

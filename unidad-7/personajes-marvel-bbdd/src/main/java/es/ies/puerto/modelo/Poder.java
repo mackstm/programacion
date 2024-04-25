@@ -24,7 +24,8 @@ public class Poder {
     @Column(name = "poder")
     private String poder;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
             mappedBy = "poderes")
     @Fetch(FetchMode.SELECT)
     private Set<Personaje> personajes;

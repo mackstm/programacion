@@ -25,11 +25,10 @@ public class Personaje {
     private int personajeId;
     @Column(name = "nombre", nullable = false)
     private String nombre;
-
-    @OneToOne(mappedBy = "personaje")
-    private Alias alias;
     @Column(name = "genero")
     private String genero;
+    @OneToOne(mappedBy = "personaje", orphanRemoval = true, cascade = CascadeType.ALL)
+    private Alias alias;
     @ManyToMany(cascade = { CascadeType.ALL },
             fetch = FetchType.LAZY)
     @Fetch(FetchMode.SELECT)
