@@ -1,5 +1,9 @@
 package es.ies.puerto.modelo;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -8,14 +12,30 @@ import java.util.Set;
  * Clase personaje para almacenar superheroes
  * @author Jose Maximiliano Boada Martin
  */
+
+@Entity
+@Table(name = "Personaje")
 public class Personaje {
     /**
      * Propiedades
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "personajeId", nullable = false)
     private int personajeId;
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    @OneToOne(mappedBy = "personaje")
     private Alias alias;
+    @Column(name = "genero")
     private String genero;
+    @ManyToMany(cascade = { CascadeType.ALL },
+            fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SELECT)
+    @JoinTable(name = "PersonajePoder",
+            joinColumns = { @JoinColumn(name = "personajeId") },
+            inverseJoinColumns = { @JoinColumn(name = "poderId")})
     private Set<Poder> poderes;
 
     /**

@@ -1,17 +1,33 @@
 package es.ies.puerto.modelo;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Poderes de personajes
  * @author Jose Maximiliano Boada Martin
  */
+@Entity
+@Table(name = "Poder")
 public class Poder {
     /**
      * Propiedades
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "poderId", nullable = false)
     private int poderId;
+    @Column(name = "poder")
     private String poder;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            mappedBy = "poderes")
+    @Fetch(FetchMode.SELECT)
+    private Set<Personaje> personajes;
 
     /**
      * Constructor por defecto

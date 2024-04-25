@@ -1,17 +1,27 @@
 package es.ies.puerto.modelo;
 
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
  * Alias de superheroe
  * @author Jose Maximiliano Boada Martin
  */
+
+@Entity
+@Table(name = "Alias")
 public class Alias {
     /**
      * Propiedades
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "aliasId", nullable = false)
     private int aliasId;
+    @OneToOne
+    @JoinColumn(name = "personajeId", nullable = false)
     private Personaje personaje;
+    @Column(name = "alias", nullable = false)
     private String alias;
 
     /**
