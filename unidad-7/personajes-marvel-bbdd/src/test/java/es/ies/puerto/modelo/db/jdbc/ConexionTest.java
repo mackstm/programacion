@@ -1,4 +1,4 @@
-package es.ies.puerto.modelo.db;
+package es.ies.puerto.modelo.db.jdbc;
 
 import es.ies.puerto.modelo.db.jdbc.Conexion;
 import org.junit.jupiter.api.Assertions;
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ConexionTest {
+
     Conexion conexion;
     String url = "src/main/resources/marvel.db";
 
@@ -27,3 +28,4 @@ public class ConexionTest {
         }
     }
 }
+

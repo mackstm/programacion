@@ -15,7 +15,7 @@
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="false"/>
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:sqlite-database-test.db"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:sqllite-database-test.db"/>
         </properties>
         
     </persistence-unit>

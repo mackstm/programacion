@@ -6,7 +6,7 @@
 	<persistence-unit name="pu-sqlite-jpa">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
-            <property name="hibernate.dialect" value="es.jpa.hibernate.example.util.SQLiteDialect"/>
+            <property name="hibernate.dialect" value="es.ies.puerto.modelo.db.hibernate.util.SQLiteDialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="validate"/>
 			<!--
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
@@ -15,7 +15,7 @@
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="false"/>
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:src/main/resources/marvel.db"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:src/main/resources/marvel-jpa.db"/>
         </properties>
 
     </persistence-unit>

@@ -1,6 +1,7 @@
 package es.ies.puerto.modelo.db.jdbc;
 
 import es.ies.puerto.exception.UsuarioException;
+import es.ies.puerto.modelo.Alias;
 import es.ies.puerto.modelo.Personaje;
 import es.ies.puerto.modelo.Poder;
 
@@ -67,12 +68,16 @@ public class OperacionesBd extends Conexion{
             while (rs.next()) {
                 int personajeId = rs.getInt("personajeId");
                 String personajeNombre = rs.getString("nombre");
+                int aliasId = rs.getInt("aliasId");
+                String aliasStr = rs.getString("alias");
                 String personajeGenero = rs.getString("genero");
                 int poderId = rs.getInt("poderId");
                 String poderStr = rs.getString("poder");
                 Poder poder = new Poder(poderId, poderStr);
                 Personaje personaje = new Personaje(personajeId, personajeNombre,
                         personajeGenero, new HashSet<>());
+                Alias alias = new Alias(aliasId, personaje, aliasStr);
+                personaje.setAlias(alias);
                 personajes.add(personaje);
                 personajes.iterator().next().getPoderes().add(poder);
             }
@@ -103,10 +108,11 @@ public class OperacionesBd extends Conexion{
      * @throws UsuarioException -
      */
     public Set<Personaje> obtenerPersonajes() throws UsuarioException {
-        String query = "SELECT p.personajeId, p.nombre, p.genero, po.poderId, po.poder " +
+        String query = "SELECT p.personajeId, p.nombre, a.aliasId, a.alias, p.genero, po.poderId, po.poder " +
                 "FROM Personaje AS p " +
                 "JOIN PersonajePoder AS pp ON p.personajeId = pp.personajeId " +
-                "JOIN Poder AS po ON po.poderId = pp.poderId";
+                "JOIN Poder AS po ON po.poderId = pp.poderId " +
+                "JOIN Alias AS a ON p.personajeId = a.personajeId";
         return obtener(query);
     }
 
@@ -117,10 +123,11 @@ public class OperacionesBd extends Conexion{
      * @throws UsuarioException -
      */
     public Personaje obtenerPersonaje(Personaje personaje) throws UsuarioException {
-        String query = "SELECT p.personajeId, p.nombre, p.genero, po.poderId, po.poder " +
+        String query = "SELECT p.personajeId, p.nombre, a.aliasId, a.alias, p.genero, po.poderId, po.poder " +
                 "FROM Personaje AS p " +
                 "JOIN PersonajePoder AS pp ON p.personajeId = pp.personajeId " +
                 "JOIN Poder AS po ON po.poderId = pp.poderId " +
+                "JOIN Alias AS a ON p.personajeId = a.personajeId " +
                 "WHERE p.personajeId = " + personaje.getPersonajeId();
         Set<Personaje> lista = obtener(query);
         if(lista.isEmpty()) {
@@ -143,6 +150,10 @@ public class OperacionesBd extends Conexion{
             query += "INSERT INTO PersonajePoder VALUES " +
                     "(" + personaje.getPersonajeId() + ", " + poder.getPoderId() + ");";
         }
+        query += "INSERT INTO Alias VALUES " +
+                "(" + personaje.getAlias().getAliasId() + ", " +
+                 personaje.getPersonajeId() + ", " +
+                "'" + personaje.getAlias().getAlias() + "');";
         actualizar(query);
     }
 
@@ -171,6 +182,7 @@ public class OperacionesBd extends Conexion{
      */
     public void eliminarPersonaje(Personaje personaje) throws UsuarioException{
         String query = "DELETE FROM Personaje AS p WHERE p.personajeId = " + personaje.getPersonajeId() + "; " +
+                "DELETE FROM Alias AS a WHERE a.personajeId = " + personaje.getPersonajeId() + "; " +
                 "DELETE FROM PersonajePoder AS pp WHERE pp.personajeId = " + personaje.getPersonajeId();
 
         actualizar(query);

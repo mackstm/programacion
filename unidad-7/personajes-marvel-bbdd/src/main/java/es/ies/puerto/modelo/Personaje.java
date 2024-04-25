@@ -14,6 +14,7 @@ public class Personaje {
      */
     private int personajeId;
     private String nombre;
+    private Alias alias;
     private String genero;
     private Set<Poder> poderes;
 
@@ -58,6 +59,14 @@ public class Personaje {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Alias getAlias() {
+        return alias;
+    }
+
+    public void setAlias(Alias alias) {
+        this.alias = alias;
     }
 
     public String getGenero() {
