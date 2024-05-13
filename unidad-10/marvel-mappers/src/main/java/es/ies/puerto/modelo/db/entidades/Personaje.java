@@ -1,6 +1,7 @@
 package es.ies.puerto.modelo.db.entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,6 +15,8 @@ public class Personaje implements Serializable {
     private Set<Poder> poderes;
 
     public Personaje() {
+        equipamientos = new HashSet<>();
+        poderes = new HashSet<>();
     }
 
     public Personaje(String id) {
@@ -77,5 +80,29 @@ public class Personaje implements Serializable {
         this.poderes = poderes;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Personaje personaje = (Personaje) o;
+        return Objects.equals(id, personaje.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Personaje{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", genero='" + genero + '\'' +
+                ", alias=" + alias +
+                ", equipamientos=" + equipamientos +
+                ", poderes=" + poderes +
+                '}';
+    }
 }
 

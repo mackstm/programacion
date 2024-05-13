@@ -9,7 +9,7 @@ import java.util.Properties;
 public class AppConfig {
     String urlBd;
     public AppConfig() throws MarvelException {
-        
+
     }
 
     public String getUrlBd() {

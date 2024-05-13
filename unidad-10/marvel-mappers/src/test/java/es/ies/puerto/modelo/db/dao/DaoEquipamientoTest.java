@@ -14,7 +14,7 @@ public class DaoEquipamientoTest {
     final String idPersonaje="1";
 
     final String nombreEquipamientoUpdate="nombreEquipamientoUpdate";
-    Equipamiento Equipamiento;
+    Equipamiento equipamiento;
 
     @BeforeAll
     public static void beforeAll() {
@@ -28,10 +28,10 @@ public class DaoEquipamientoTest {
     @BeforeEach
     public void beforeEach() {
         try {
-            Equipamiento = new Equipamiento(idEquipamiento,
+            equipamiento = new Equipamiento(idEquipamiento,
                     nombreEquipamiento,
                     descripcionEquipamiento,idPersonaje);
-            daoEquipamiento.updateEquipamiento(Equipamiento);
+            daoEquipamiento.updateEquipamiento(equipamiento);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
@@ -52,9 +52,9 @@ public class DaoEquipamientoTest {
     @Test
     public void findEquipamientoTest() {
         try {
-            Equipamiento EquipamientoFind = daoEquipamiento.findEquipamiento(Equipamiento);
+            Equipamiento EquipamientoFind = daoEquipamiento.findEquipamiento(equipamiento);
             Assertions.assertNotNull(EquipamientoFind);
-            Assertions.assertEquals(Equipamiento, EquipamientoFind);
+            Assertions.assertEquals(equipamiento, EquipamientoFind);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
@@ -63,11 +63,11 @@ public class DaoEquipamientoTest {
     @Test
     public void updateEquipamientoTest() {
         try {
-            Equipamiento EquipamientoFind = daoEquipamiento.findEquipamiento(Equipamiento);
+            Equipamiento EquipamientoFind = daoEquipamiento.findEquipamiento(equipamiento);
             Assertions.assertNotNull(EquipamientoFind);
             EquipamientoFind.setNombre(nombreEquipamientoUpdate);
             daoEquipamiento.updateEquipamiento(EquipamientoFind);
-            Equipamiento EquipamientoFindUpdate = daoEquipamiento.findEquipamiento(Equipamiento);
+            Equipamiento EquipamientoFindUpdate = daoEquipamiento.findEquipamiento(equipamiento);
             Assertions.assertNotNull(EquipamientoFindUpdate);
             Assertions.assertEquals(EquipamientoFind, EquipamientoFindUpdate);
         }catch (Exception e) {
@@ -79,7 +79,7 @@ public class DaoEquipamientoTest {
     @AfterEach
     public void afterEach()  {
         try {
-            daoEquipamiento.deleteEquipamiento(Equipamiento);
+            daoEquipamiento.deleteEquipamiento(equipamiento);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());
         }

@@ -1,0 +1,9 @@
+
+€
+java:S11633"=Refactor this code to not throw exceptions in finally blocks.(­ğÍ°8Ô²ÇØñ1J$8242a48a-5ec2-42e8-ac13-66c7caaab63e
+w
+java:S11433"4Remove this throw statement from this finally block.(­ğÍ°8Ô²ÇØñ1J$6e28dd9f-77f3-4e02-967b-a445ac0a55fe
+
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ã§óÔÿÿÿÿÿ8Õ³ÇØñ1J$d9e638ab-c9f3-4c74-8f3f-690cf399fa78
+Œ
+java:S1128"DRemove this unused import 'es.ies.puerto.modelo.db.entidades.Poder'.(ğß¨èøÿÿÿÿ8§÷ÓØñ1J$7c7ff93e-8c29-45e2-a3e9-051361ddb5f2

@@ -10,7 +10,7 @@ public class DaoAliasTest {
     final String idAlias="idAlias";
     final String nombreAlias="nombreAlias";
     final String descripcionAliasUpdate="nombreAliasUpdate";
-    Alias Alias;
+    Alias alias;
 
     @BeforeAll
     public static void beforeAll() {
@@ -24,8 +24,8 @@ public class DaoAliasTest {
     @BeforeEach
     public void beforeEach() {
         try {
-            Alias = new Alias(idAlias,nombreAlias,"1");
-            daoAlias.updateAlias(Alias);
+            alias = new Alias(idAlias,nombreAlias,"1");
+            daoAlias.updateAlias(alias);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
@@ -46,9 +46,9 @@ public class DaoAliasTest {
     @Test
     public void findAliasTest() {
         try {
-            Alias AliasFind = daoAlias.findAlias(Alias);
+            Alias AliasFind = daoAlias.findAlias(alias);
             Assertions.assertNotNull(AliasFind);
-            Assertions.assertEquals(Alias, AliasFind);
+            Assertions.assertEquals(alias, AliasFind);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
@@ -57,11 +57,11 @@ public class DaoAliasTest {
     @Test
     public void updateAliasTest() {
         try {
-            Alias AliasFind = daoAlias.findAlias(Alias);
+            Alias AliasFind = daoAlias.findAlias(alias);
             Assertions.assertNotNull(AliasFind);
             AliasFind.setDescripcion(descripcionAliasUpdate);
             daoAlias.updateAlias(AliasFind);
-            Alias AliasFindUpdate = daoAlias.findAlias(Alias);
+            Alias AliasFindUpdate = daoAlias.findAlias(alias);
             Assertions.assertNotNull(AliasFindUpdate);
             Assertions.assertEquals(AliasFind, AliasFindUpdate);
             Assertions.assertEquals(AliasFind.getDescripcion(), AliasFindUpdate.getDescripcion());
@@ -75,7 +75,7 @@ public class DaoAliasTest {
     @AfterEach
     public void afterEach()  {
         try {
-            daoAlias.deleteAlias(Alias);
+            daoAlias.deleteAlias(alias);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
