@@ -32,7 +32,6 @@
     <spring.version>5.3.20</spring.version>
     <servlet.api.version>2.5</servlet.api.version>
     <jackson.version>2.13.2</jackson.version>
-    <war.version>3.2.1</war.version>
   </properties>
 
   <dependencies>
@@ -95,7 +94,6 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-frontend-jaxrs</artifactId>
@@ -122,6 +120,12 @@
       <artifactId>jackson-jaxrs-json-provider</artifactId>
       <version>${jackson.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-xml-provider</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -235,11 +239,10 @@
           </annotationProcessorPaths>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>${war.version}</version>
+        <version>3.2.1</version>
         <configuration>
           <webResources>
             <resource>
@@ -249,17 +252,8 @@
           <warName>${name}</warName>
         </configuration>
       </plugin>
-
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat7-maven-plugin</artifactId>
-          <version>2.2</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+
   </build>
   <reporting>
     <plugins>
@@ -271,4 +265,7 @@
     </plugins>
   </reporting>
 
+
+
 </project>
+
