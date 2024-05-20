@@ -29,7 +29,7 @@ public class Personaje {
     private String genero;
     @OneToOne(mappedBy = "personaje", orphanRemoval = true, cascade = CascadeType.ALL)
     private Alias alias;
-    @ManyToMany(cascade = { CascadeType.ALL },
+    @ManyToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     @Fetch(FetchMode.SELECT)
     @JoinTable(name = "PersonajePoder",
