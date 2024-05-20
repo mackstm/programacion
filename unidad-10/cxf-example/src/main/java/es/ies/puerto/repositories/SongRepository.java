@@ -1,31 +1,41 @@
 package es.ies.puerto.repositories;
 
-import es.ies.puerto.model.Song;
+import es.ies.puerto.models.Song;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SongRepository {
-    private List<Song> songs;
+    private List<Song> lista;
 
-    public SongRepository() {
-        songs = new ArrayList<>();
-        songs.add(new Song("1", "Karma Police","4.00"));
-        songs.add(new Song("2", "Pepe Benavente","10.00"));
-        songs.add(new Song("3", "Entierra La Luz","9.00"));
+    public SongRepository(){
+        lista = new ArrayList<>();
+        lista.add(new Song("1", "Karma Police","4.00"));
+        lista.add(new Song("2", "Pepe Benavente","10.00"));
     }
+
     public Song getSongById(String id) {
-        return songs.get(Integer.parseInt(id));
+        Song song = new Song(id);
+        int index = lista.indexOf(song);
+        if (index >= 0) {
+            return lista.get(index);
+        }
+        return null;
     }
 
     public List<Song> getSongs() {
-        return songs;
+        return lista;
     }
 
-    public void saveSong(Song song) {
-        if (songs.contains(song)) {
-
+    public boolean saveSong(Song song) {
+        if (lista.contains(song)) {
+            return false;
         }
-        songs.add(song);
+        return lista.add(song);
+    }
+
+    public boolean deleteSongById(String id) {
+        Song song = new Song(id);
+        return lista.remove(song);
     }
 }

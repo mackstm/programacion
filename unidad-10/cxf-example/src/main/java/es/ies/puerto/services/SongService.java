@@ -1,48 +1,76 @@
 package es.ies.puerto.services;
 
-import es.ies.puerto.model.Song;
+import es.ies.puerto.models.Song;
 import es.ies.puerto.repositories.SongRepository;
 
+
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
-
 @Path("/")
-
+@Consumes("application/json")
+@Produces("application/json")
 public class SongService {
+
+
     private SongRepository songRepository;
+
     public SongService() {
         songRepository = new SongRepository();
     }
 
+    public void setSongRepository(SongRepository songRepository) {
+        this.songRepository = songRepository;
+    }
+
     @GET
     @Path("/{id}")
-    @Consumes({ "application/json" })
-    @Produces({ "application/json" })
-    public Song getSongById(@PathParam("id") String id) {
-        return songRepository.getSongById(id);
+    public Response getSongById(@PathParam("id") String id) {
+        Song song = songRepository.getSongById(id);
+        if (song != null) {
+            return Response.ok(song).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @GET
     @Path("/")
-    @Consumes({ "application/json" })
-    @Produces({ "application/json" })
-    public List<Song> getSongs() {
-        return songRepository.getSongs();
+    public Response getSongs() {
+        List<Song> songs = songRepository.getSongs();
+        return Response.ok(songs).build();
     }
 
     @POST
-    @Path("/{song}")
-    @Consumes({ "application/json" })
-    public void addSong(@PathParam("song") Song song) {
-        songRepository.saveSong(song);
+    public Response addSong(Song song) {
+        boolean result = songRepository.saveSong(song);
+        if (result) {
+            return Response.status(Response.Status.CREATED).build();
+        }
+        return Response.status(Response.Status.NOT_MODIFIED).build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public Response deleteSongById(@PathParam("id") String id) {
+        boolean deleted = songRepository.deleteSongById(id);
+        if (deleted) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @GET
     @Path("/xml/{id}")
-    @Consumes({ "application/xml" })
-    @Produces({ "application/xml" })
-    public Song getSongXml(@PathParam("id") String id) {
-        return songRepository.getSongById(id);
+    @Produces("application/xml")
+    public Response getSongXml(@PathParam("id") String id) {
+        Song song = songRepository.getSongById(id);
+        if (song != null) {
+            return Response.ok(song).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 }
