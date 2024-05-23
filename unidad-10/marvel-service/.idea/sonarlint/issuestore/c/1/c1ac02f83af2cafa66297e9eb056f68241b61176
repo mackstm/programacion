@@ -1,0 +1,11 @@
+
+€
+java:S1163"=Refactor this code to not throw exceptions in finally blocks.(ÛÂ…æ8›½–Øñ1J$853240a0-86cc-4c4a-8a1e-86c5901957d9
+w
+java:S1143"4Remove this throw statement from this finally block.(ÛÂ…æ8œ½–Øñ1J$cb77f763-7e09-4e7f-9206-380a115642da
+
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ã§óÔÿÿÿÿÿ8¦½–Øñ1J$e2a62f53-b6bd-4fa8-8c50-b6a82848bb57
+|
+java:S5993"9Change the visibility of this constructor to "protected".(‹ùİç8§½–Øñ1J$f7b8ea5b-520f-40d2-9f01-39ec45dba9af
+r
+java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8¨‘›Øñ1J$5da2109b-4211-41af-a9c6-d50fbac1055b

@@ -1,0 +1,10 @@
+
+€
+java:S1163"=Refactor this code to not throw exceptions in finally blocks.(ÛÂ…æ8ôØØñ1J$95043ed5-9b02-480a-b241-583ea9c5f9b3
+w
+java:S1143"4Remove this throw statement from this finally block.(ÛÂ…æ8õØØñ1J$ce881cbe-b9cc-4ffa-84e7-c7c661c3dd69
+
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ã§óÔÿÿÿÿÿ8ÓíØñ1J$0da95dc7-063f-48c4-b941-6969d8949f68
+V
+java:S5993
+"9Change the visibility of this constructor to "protected".(‹ùİç8ä÷“Øñ1
