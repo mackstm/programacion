@@ -39,12 +39,12 @@ public class MapperPersonaje {
         personaje.setGenero(personajeDTO.getGenero());
         personaje.setAlias(MapperAlias.aliasDTOToAlias(personajeDTO.getAlias()));
 
-        for (EquipamientoDTO equipamiento : personajeDTO.getEquipamientos()) {
-            personaje.getEquipamientos().add(MapperEquipamiento.equipamientoDTOToEquipamiento(equipamiento));
+        for (EquipamientoDTO equipamientoDTO : personajeDTO.getEquipamientos()) {
+            personaje.getEquipamientos().add(MapperEquipamiento.equipamientoDTOToEquipamiento(equipamientoDTO));
         }
 
-        for (PoderDTO poder : personajeDTO.getPoderes()) {
-            personaje.getPoderes().add(MapperPoder.poderDTOToPoder(poder));
+        for (PoderDTO poderDTO : personajeDTO.getPoderes()) {
+            personaje.getPoderes().add(MapperPoder.poderDTOToPoder(poderDTO));
         }
 
         return personaje;

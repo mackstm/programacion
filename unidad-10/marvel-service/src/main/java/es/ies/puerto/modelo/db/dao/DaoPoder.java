@@ -89,13 +89,16 @@ public class DaoPoder extends Actualizar {
     }
 
     public boolean deletePoder(Poder poder) throws MarvelException {
-
+        poder = findPoder(poder);
+        if (poder == null) {
+            return false;
+        }
         String query = "DELETE FROM Poder AS po " +
                 "WHERE po.id = '" + poder.getId() + "'; " +
                 "DELETE FROM Personaje_Poder AS pp " +
                 "WHERE pp.poder_id = '" + poder.getId() + "';";
         actualizar(query);
-        return findPoder(poder) != null;
+        return true;
     }
 
 

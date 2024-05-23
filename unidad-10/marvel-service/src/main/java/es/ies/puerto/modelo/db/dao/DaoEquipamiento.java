@@ -97,10 +97,14 @@ public class DaoEquipamiento extends Actualizar {
     }
 
     public boolean deleteEquipamiento(Equipamiento equipamiento) throws MarvelException {
+        equipamiento = findEquipamiento(equipamiento);
+        if (equipamiento == null) {
+            return false;
+        }
         String query = "DELETE FROM Equipamiento AS eq " +
                 "WHERE eq.id = '" + equipamiento.getId() + "'; ";
         actualizar(query);
-        return findEquipamiento(equipamiento) != null;
+        return true;
     }
 
 

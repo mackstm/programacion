@@ -27,7 +27,7 @@ public class EquipamientoService {
     }
 
     @GET
-    @Path("/equipamientos/{id}")
+    @Path("/{id}")
     public Response getEquipamientoById(@PathParam("id") String id) throws MarvelException {
         EquipamientoDTO equipamientoDTO =
                 MapperEquipamiento.equipamientoToEquipamientoDTO(daoEquipamiento.findEquipamiento(id));
@@ -39,7 +39,7 @@ public class EquipamientoService {
     }
 
     @GET
-    @Path("/equipamientos")
+    @Path("/")
     public Response getEquipamientos() throws MarvelException {
         Set<Equipamiento> equipamientos = daoEquipamiento.findAllEquipamiento();
         List<EquipamientoDTO> equipamientoDtoList = new ArrayList<>();
@@ -60,7 +60,7 @@ public class EquipamientoService {
     }
 
     @DELETE
-    @Path("/equipamientos/{id}")
+    @Path("/{id}")
     public Response deleteEquipamientoById(@PathParam("id") String id) throws MarvelException{
         EquipamientoDTO equipamientoDTO = new EquipamientoDTO(id);
         boolean deleted =

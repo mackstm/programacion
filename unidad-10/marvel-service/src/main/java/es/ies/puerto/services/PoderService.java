@@ -29,7 +29,7 @@ public class PoderService {
     }
 
     @GET
-    @Path("/poderes/{id}")
+    @Path("/{id}")
     public Response getPoderById(@PathParam("id") String id) throws MarvelException {
         PoderDTO poderDTO = MapperPoder.poderToPoderDTO(daoPoder.findPoder(id));
         if (poderDTO != null) {
@@ -40,7 +40,7 @@ public class PoderService {
     }
 
     @GET
-    @Path("/poderes")
+    @Path("/")
     public Response getPoderes() throws MarvelException {
         Set<Poder> poderes = daoPoder.findAllPoder();
         List<PoderDTO> poderDTOList = new ArrayList<>();
@@ -60,7 +60,7 @@ public class PoderService {
     }
 
     @DELETE
-    @Path("/poderes/{id}")
+    @Path("/{id}")
     public Response deletePoderById(@PathParam("id") String id) throws MarvelException{
         PoderDTO poderDTO = new PoderDTO(id);
         boolean deleted = daoPoder.deletePoder(MapperPoder.poderDTOToPoder(poderDTO));

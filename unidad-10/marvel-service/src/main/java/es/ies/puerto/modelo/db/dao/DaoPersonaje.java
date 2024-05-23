@@ -43,8 +43,12 @@ public class DaoPersonaje extends Actualizar {
                 Personaje personaje = new Personaje(personajeId, nombrePersonaje, genero, alias, new HashSet<>(),
                         new HashSet<>());
                 personajes.add(personaje);
-                personajes.iterator().next().getPoderes().add(poder);
-                personajes.iterator().next().getEquipamientos().add(equipamiento);
+                for (Personaje elemento : personajes) {
+                    if (personaje.equals(elemento)) {
+                        elemento.getPoderes().add(poder);
+                        elemento.getEquipamientos().add(equipamiento);
+                    }
+                }
             }
 
         } catch (SQLException exception) {
@@ -72,10 +76,10 @@ public class DaoPersonaje extends Actualizar {
                 "a.id AS aliasId, a.alias, p.genero, po.id AS poderId, po.nombre AS nombrePoder, " +
                 "eq.id AS equipId, eq.nombre AS nombreEquip, eq.descripcion " +
                 "FROM Personaje AS p " +
-                "JOIN Personaje_Poder AS pp ON p.id = pp.personaje_id " +
-                "JOIN Poder AS po ON po.id = pp.poder_id " +
-                "JOIN Alias AS a ON p.id = a.personaje_id " +
-                "JOIN Equipamiento AS eq ON p.id = eq.personaje_id";
+                "LEFT JOIN Personaje_Poder AS pp ON p.id = pp.personaje_id " +
+                "LEFT JOIN Poder AS po ON po.id = pp.poder_id " +
+                "LEFT JOIN Alias AS a ON p.id = a.personaje_id " +
+                "LEFT JOIN Equipamiento AS eq ON p.id = eq.personaje_id";
         return obtener(query);
     }
 
@@ -89,10 +93,10 @@ public class DaoPersonaje extends Actualizar {
                 "a.id AS aliasId, a.alias, p.genero, po.id AS poderId, po.nombre AS nombrePoder, " +
                 "eq.id AS equipId, eq.nombre AS nombreEquip, eq.descripcion " +
                 "FROM Personaje AS p " +
-                "JOIN Personaje_Poder AS pp ON p.id = pp.personaje_id " +
-                "JOIN Poder AS po ON po.id = pp.poder_id " +
-                "JOIN Alias AS a ON p.id = a.personaje_id " +
-                "JOIN Equipamiento AS eq ON p.id = eq.personaje_id " +
+                "LEFT JOIN Personaje_Poder AS pp ON p.id = pp.personaje_id " +
+                "LEFT JOIN Poder AS po ON po.id = pp.poder_id " +
+                "LEFT JOIN Alias AS a ON p.id = a.personaje_id " +
+                "LEFT JOIN Equipamiento AS eq ON p.id = eq.personaje_id " +
                 "WHERE p.id = '" + personaje.getId() + "'";
         Set<Personaje> personajes = obtener(query);
         if(personajes.isEmpty()) {
@@ -134,6 +138,10 @@ public class DaoPersonaje extends Actualizar {
     }
 
     public boolean deletePersonaje(Personaje personaje) throws MarvelException {
+        personaje = findPersonaje(personaje);
+        if (personaje == null) {
+            return false;
+        }
         String query = "DELETE FROM Personaje AS p WHERE p.id = '" + personaje.getId() + "'; " +
                 "DELETE FROM Personaje_Poder AS pp WHERE pp.personaje_id = '" + personaje.getId() + "'; ";
         DaoAlias daoAlias = new DaoAlias();
@@ -149,7 +157,7 @@ public class DaoPersonaje extends Actualizar {
             daoEquipamiento.deleteEquipamiento(equipamiento);
         }
         actualizar(query);
-        return findPersonaje(personaje) != null;
+        return true;
     }
 
 

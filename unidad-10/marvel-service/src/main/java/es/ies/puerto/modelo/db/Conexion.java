@@ -11,7 +11,7 @@ public class Conexion {
     private String url;
 
     public Conexion() throws MarvelException {
-        url = "jdbc:sqlite:src/main/resources/mavel.db";
+        url = "jdbc:sqlite:/home/mackstm/Documents/programacion/unidad-10/marvel-service/src/main/resources/mavel.db";
     }
 
     public Connection getConexion() throws MarvelException {

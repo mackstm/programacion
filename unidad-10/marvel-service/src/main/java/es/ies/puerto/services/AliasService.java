@@ -28,7 +28,7 @@ public class AliasService {
     }
 
     @GET
-    @Path("/alias/{id}")
+    @Path("/{id}")
     public Response getAliasById(@PathParam("id") String id) throws MarvelException {
         AliasDTO aliasDTO = MapperAlias.aliasToAliasDTO(daoAlias.findAlias(id));
         if (aliasDTO != null) {
@@ -39,7 +39,7 @@ public class AliasService {
     }
 
     @GET
-    @Path("/alias")
+    @Path("/")
     public Response getAliases() throws MarvelException {
         Set<Alias> aliases = daoAlias.findAllAlias();
         List<AliasDTO> aliasDTOList = new ArrayList<>();
@@ -59,7 +59,7 @@ public class AliasService {
     }
 
     @DELETE
-    @Path("/alias/{id}")
+    @Path("/{id}")
     public Response deleteAliasById(@PathParam("id") String id) throws MarvelException{
         AliasDTO aliasDTO = new AliasDTO(id);
         boolean deleted = daoAlias.deleteAlias(MapperAlias.aliasDTOToAlias(aliasDTO));
