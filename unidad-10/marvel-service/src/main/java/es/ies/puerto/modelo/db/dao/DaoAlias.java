@@ -93,18 +93,12 @@ public class DaoAlias extends Actualizar {
             return encontrado;
         }
 
-    public boolean deleteAlias(String id) throws MarvelException {
-        Alias alias = new Alias(id);
-        return deleteAlias(alias);
-    }
-
-
     public boolean deleteAlias(Alias alias) throws MarvelException {
             String query = "DELETE FROM Alias AS a " +
                     "WHERE a.id = '" + alias.getId() + "'; ";
             actualizar(query);
             return findAlias(alias) != null;
-        }
+    }
 
 
 }

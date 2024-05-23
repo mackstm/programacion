@@ -1,6 +1,5 @@
 package es.ies.puerto.modelo.db;
 
-import es.ies.puerto.config.AppConfig;
 import es.ies.puerto.exception.MarvelException;
 
 import java.sql.Connection;

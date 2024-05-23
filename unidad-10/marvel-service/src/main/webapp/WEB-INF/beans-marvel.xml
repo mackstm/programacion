@@ -7,7 +7,10 @@
 
     <jaxrs:server id="marvelService" address="/">
         <jaxrs:serviceBeans>
-            <bean id="marvelBean" class="es.ies.puerto.services.PersonajeService"/>
+            <bean id="marvelBeanPersonaje" class="es.ies.puerto.services.PersonajeService"/>
+            <bean id="marvelBeanPoder" class="es.ies.puerto.services.PoderService"/>
+            <bean id="marvelBeanAlias" class="es.ies.puerto.services.AliasService"/>
+            <bean id="marvelBeanEquip" class="es.ies.puerto.services.EquipamientoService"/>
         </jaxrs:serviceBeans>
 
         <jaxrs:providers>

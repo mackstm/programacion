@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Path("/personaje-rest")
+@Path("/personajes")
 @Consumes("application/json")
 @Produces("application/json")
 public class PersonajeService {
@@ -22,12 +22,12 @@ public class PersonajeService {
         daoPersonaje = new DaoPersonaje();
     }
 
-    public void setPersonajesDTO(DaoPersonaje daoPersonaje) {
+    public void setDaoPersonaje(DaoPersonaje daoPersonaje) {
         this.daoPersonaje = daoPersonaje;
     }
 
     @GET
-    @Path("/personaje-rest/{id}")
+    @Path("/{id}")
     public Response getPersonajeById(@PathParam("id") String id) throws MarvelException {
         PersonajeDTO personajeDTO = MapperPersonaje.personajeToPersonajeDTO(daoPersonaje.findPersonaje(id));
         if (personajeDTO != null) {
@@ -38,7 +38,7 @@ public class PersonajeService {
     }
 
     @GET
-    @Path("/personaje-rest")
+    @Path("/")
     public Response getPersonajes() throws MarvelException {
         Set<Personaje> personajes = daoPersonaje.findAllPersonaje();
         List<PersonajeDTO> personajeDTOList = new ArrayList<>();
@@ -58,7 +58,7 @@ public class PersonajeService {
     }
 
     @DELETE
-    @Path("/personaje-rest/{id}")
+    @Path("/{id}")
     public Response deletePersonajeById(@PathParam("id") String id) throws MarvelException{
     PersonajeDTO personajeDTO = new PersonajeDTO(id);
     boolean deleted = daoPersonaje.deletePersonaje(MapperPersonaje.personajeDTOToPersonaje(personajeDTO));

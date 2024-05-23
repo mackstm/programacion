@@ -133,11 +133,6 @@ public class DaoPersonaje extends Actualizar {
         return encontrado;
     }
 
-    public boolean deletePersonaje(String id) throws MarvelException {
-        Personaje personaje = new Personaje(id);
-        return deletePersonaje(personaje);
-    }
-
     public boolean deletePersonaje(Personaje personaje) throws MarvelException {
         String query = "DELETE FROM Personaje AS p WHERE p.id = '" + personaje.getId() + "'; " +
                 "DELETE FROM Personaje_Poder AS pp WHERE pp.personaje_id = '" + personaje.getId() + "'; ";

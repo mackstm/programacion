@@ -88,12 +88,6 @@ public class DaoPoder extends Actualizar {
         return encontrado;
     }
 
-    public boolean deletePoder(String id) throws MarvelException {
-        Poder poder = new Poder(id);
-        return deletePoder(poder);
-    }
-
-
     public boolean deletePoder(Poder poder) throws MarvelException {
 
         String query = "DELETE FROM Poder AS po " +
