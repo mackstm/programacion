@@ -50,6 +50,7 @@ public class EquipamientoService {
     }
 
     @POST
+    @Path("/")
     public Response updateEquipamiento(EquipamientoDTO equipamientoDTO) throws MarvelException {
         boolean result =
                 daoEquipamiento.updateEquipamiento(MapperEquipamiento.equipamientoDTOToEquipamiento(equipamientoDTO));

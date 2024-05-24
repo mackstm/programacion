@@ -49,6 +49,7 @@ public class PersonajeService {
     }
 
     @POST
+    @Path("/")
     public Response updatePersonaje(PersonajeDTO personajeDTO) throws MarvelException {
         boolean result = daoPersonaje.updatePersonaje(MapperPersonaje.personajeDTOToPersonaje(personajeDTO));
         if (result) {

@@ -50,6 +50,7 @@ public class AliasService {
     }
 
     @POST
+    @Path("/")
     public Response updateAlias(AliasDTO aliasDTO) throws MarvelException {
         boolean result = daoAlias.updateAlias(MapperAlias.aliasDTOToAlias(aliasDTO));
         if (result) {

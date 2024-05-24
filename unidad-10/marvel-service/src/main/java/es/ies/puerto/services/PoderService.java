@@ -51,6 +51,7 @@ public class PoderService {
     }
 
     @POST
+    @Path("/")
     public Response updatePoder(PoderDTO poderDTO) throws MarvelException {
         boolean result = daoPoder.updatePoder(MapperPoder.poderDTOToPoder(poderDTO));
         if (result) {
