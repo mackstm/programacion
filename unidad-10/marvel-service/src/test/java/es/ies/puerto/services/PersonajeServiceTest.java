@@ -4,6 +4,7 @@ import es.ies.puerto.dto.PersonajeDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoPersonaje;
 import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.services.cxf.PersonajeService;
 import es.ies.puerto.utilities.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

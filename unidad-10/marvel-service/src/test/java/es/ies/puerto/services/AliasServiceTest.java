@@ -4,6 +4,7 @@ import es.ies.puerto.dto.AliasDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoAlias;
 import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.services.cxf.AliasService;
 import es.ies.puerto.utilities.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

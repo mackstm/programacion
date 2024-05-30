@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "Iron Man",
+    "alias": "Tony Stark",
+    "genero": "Masculino",
+    "poderes": [
+      "Vuelo",
+      "Armadura tecnológica avanzada",
+      "Rayos láser"
+    ],
+    "DELIMITADOR": ","
+  },
+  {
+    "nombre": "nombre",
+    "alias": "Peter Parker",
+    "genero": "genero",
+    "poderes": [
+      "poder1",
+      "poder2"
+    ],
+    "DELIMITADOR": ","
+  }
+]
